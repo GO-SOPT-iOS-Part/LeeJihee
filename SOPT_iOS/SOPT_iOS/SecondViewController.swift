@@ -9,6 +9,7 @@ import UIKit
 
 final class SecondViewController: UIViewController {
     
+    //MARK: -UI Components
     // 대부분의 프로퍼티는 private으로 선언이 되어있음 -> 함수 이용해서 접근하기
     
     private var name: String?
@@ -31,14 +32,18 @@ final class SecondViewController: UIViewController {
     }()
     
     
-    func dataBind(name: String) {
-            nameLabel.text = name
-        }  
+    //MARK: - LifeCycle
     
     override func viewDidLoad() {
             super.viewDidLoad()
             style()
             setLayout()
+        }
+    
+    //MARK: - Custom Method
+    
+    func dataBind(name: String) {
+            nameLabel.text = name
         }
     
     @objc func backButtonTab(_ button: UIButton){
