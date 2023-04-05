@@ -11,7 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    
+    //TODO:  window와 windowScene이 어떤 역할을 하는지 공부하기!
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
             
             guard let windowScene = (scene as? UIWindowScene) else { return }
