@@ -8,6 +8,8 @@
 import UIKit
 
 final class FirstViewController: UIViewController {
+    
+    //MARK: - UI Components
     private let greetingText = "솝트에 오신 걸 환영합니다🥰"
     private lazy var greetingLabel: UILabel = {
         let label = UILabel()
@@ -43,15 +45,12 @@ final class FirstViewController: UIViewController {
                          action:
                             #selector(presentButtonTapped),
                          for: .touchUpInside)
-        button.layer.cornerRadius = 20
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 0)
-        button.layer.shadowOpacity = 0.20
+        button.makeCornerRound(radius: 20)
+        button.makeBorder(width: 2, color: .white)
+        button.makeShadow(radius: 3, offset: CGSize(width: 0, height: 0), opacity: 0.2)
         return button
     }()
     
-    // lazy var 사용 : 컴파일 시 self는 본인을 지칭하는 것 lazy var 를 사용하면 호출 시에 생성되므로 ! 괜찮음
     
     private lazy var pushButton: UIButton = {
         let button = UIButton()
@@ -62,25 +61,38 @@ final class FirstViewController: UIViewController {
         button.addTarget(self,
                          action: #selector(pushButtonTapped),
                          for: .touchUpInside)
-        button.layer.cornerRadius = 20
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.white.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 0)
-        button.layer.shadowOpacity = 0.20  
+        button.makeCornerRound(radius: 20)
+        button.makeBorder(width: 2, color: .white)
+        button.makeShadow(radius: 3, offset: CGSize(width: 0, height: 0), opacity: 0.2)
         return button
     }()
     
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         setLayout()
     }
     
+    
+    //MARK: - function implementation
+    
+    
+    private func setGreetingLabel(_ empty: Bool){
+        if empty {
+            greetingLabel.text = "이름을 먼저 입력해주세요!😡"
+            greetingLabel.textColor = .red
+        }else{
+            greetingLabel.text = greetingText
+            greetingLabel.textColor = .darkGray
+        }
+    }
+    
+    
     func presentToSecondViewController() {
         guard let name = nameTextField.text else { return }
         let empty = name.isEmpty
         let secondViewController = SecondViewController()
-        
         
         if name.isEmpty {
             setGreetingLabel(empty)
@@ -110,6 +122,8 @@ final class FirstViewController: UIViewController {
         }
     }
     
+    //MARK: -objc Method
+    
     @objc
     func presentButtonTapped() {
         
@@ -122,27 +136,10 @@ final class FirstViewController: UIViewController {
         pushToSecondViewController()
     }
     
-    private func setGreetingLabel(_ empty: Bool){
-        if empty {
-            greetingLabel.text = "이름을 먼저 입력해주세요!😡"
-            greetingLabel.textColor = .red
-        }else{
-            greetingLabel.text = greetingText
-            greetingLabel.textColor = .darkGray
-        }
-    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }
 
+//MARK: Set Layout
 
 private extension FirstViewController {
     
@@ -152,11 +149,8 @@ private extension FirstViewController {
     
     func setLayout() {
         
-        [greetingLabel,nameLabel, nameTextField,
-         presentButton, pushButton].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview($0)
-        }
+        view.addSubviews(greetingLabel,nameLabel, nameTextField,presentButton, pushButton)
+        
         NSLayoutConstraint.activate([greetingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 280),
                                      greetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      greetingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)])
@@ -181,3 +175,32 @@ private extension FirstViewController {
                                      pushButton.heightAnchor.constraint(equalToConstant: 48)])
     }
 }
+
+extension UIView {
+    
+    func addSubviews(_ views: UIView...) {
+            views.forEach {
+                self.addSubview($0)
+                $0.translatesAutoresizingMaskIntoConstraints = false
+            }
+        }
+    
+    func makeShadow(radius : CGFloat, offset : CGSize, opacity : Float){
+            layer.shadowColor = UIColor.darkGray.cgColor
+            layer.shadowOffset = offset
+            layer.shadowRadius = radius
+            layer.shadowOpacity = opacity
+            layer.masksToBounds = false
+        }
+        
+        func makeCornerRound (radius : CGFloat){
+            layer.cornerRadius = radius
+            layer.masksToBounds = false
+        }
+        
+        func makeBorder(width : CGFloat , color : UIColor ){
+            layer.borderWidth = width
+            layer.borderColor = color.cgColor
+        }
+}
+
