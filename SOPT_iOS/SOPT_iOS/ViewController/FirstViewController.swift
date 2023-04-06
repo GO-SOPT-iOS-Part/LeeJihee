@@ -47,7 +47,7 @@ final class FirstViewController: UIViewController {
                          for: .touchUpInside)
         button.makeCornerRound(radius: 20)
         button.makeBorder(width: 2, color: .white)
-        button.makeShadow(radius: 3, offset: CGSize(width: 0, height: 0), opacity: 0.2)
+        button.makeShadow(radius: 3, offsetX: 0,offsetY: 0, opacity: 0.2)
         return button
     }()
     
@@ -63,7 +63,7 @@ final class FirstViewController: UIViewController {
                          for: .touchUpInside)
         button.makeCornerRound(radius: 20)
         button.makeBorder(width: 2, color: .white)
-        button.makeShadow(radius: 3, offset: CGSize(width: 0, height: 0), opacity: 0.2)
+        button.makeShadow(radius: 3, offsetX: 0,offsetY: 0, opacity: 0.2)
         return button
     }()
     
@@ -141,7 +141,7 @@ final class FirstViewController: UIViewController {
 
 //MARK: Set Layout
 
-private extension FirstViewController {
+extension FirstViewController {
     
     func style() {
         view.backgroundColor = .white
@@ -149,8 +149,9 @@ private extension FirstViewController {
     
     func setLayout() {
         
-        view.addSubviews(greetingLabel,nameLabel, nameTextField,presentButton, pushButton)
-        
+        [greetingLabel,nameLabel, nameTextField,presentButton, pushButton].forEach{
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         NSLayoutConstraint.activate([greetingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 280),
                                      greetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
                                      greetingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)])
@@ -174,33 +175,5 @@ private extension FirstViewController {
                                      pushButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
                                      pushButton.heightAnchor.constraint(equalToConstant: 48)])
     }
-}
-
-extension UIView {
-    
-    func addSubviews(_ views: UIView...) {
-            views.forEach {
-                self.addSubview($0)
-                $0.translatesAutoresizingMaskIntoConstraints = false
-            }
-        }
-    
-    func makeShadow(radius : CGFloat, offset : CGSize, opacity : Float){
-            layer.shadowColor = UIColor.darkGray.cgColor
-            layer.shadowOffset = offset
-            layer.shadowRadius = radius
-            layer.shadowOpacity = opacity
-            layer.masksToBounds = false
-        }
-        
-        func makeCornerRound (radius : CGFloat){
-            layer.cornerRadius = radius
-            layer.masksToBounds = false
-        }
-        
-        func makeBorder(width : CGFloat , color : UIColor ){
-            layer.borderWidth = width
-            layer.borderColor = color.cgColor
-        }
 }
 
