@@ -141,7 +141,7 @@ final class FirstViewController: UIViewController {
 
 //MARK: Set Layout
 
-extension FirstViewController {
+private extension FirstViewController {
     
     func style() {
         view.backgroundColor = .white
