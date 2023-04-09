@@ -13,6 +13,8 @@ final class Test2_FirstViewController: UIViewController {
     
     var count = 0
     
+    //MARK: UIcomponents
+    
     private let plantImageView = UIImageView().then{
         $0.image = Image.sproutImage
     }
@@ -31,6 +33,8 @@ final class Test2_FirstViewController: UIViewController {
                       for: .touchUpInside)
     }
     
+    //MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +43,7 @@ final class Test2_FirstViewController: UIViewController {
     }
 }
 
+//MARK: Custom Method
 private extension Test2_FirstViewController {
     
     func style() {

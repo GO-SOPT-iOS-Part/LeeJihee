@@ -13,9 +13,12 @@ protocol CountProtocol: AnyObject {
 }
 
 final class Test2_SecondViewController: UIViewController {
-    
+ 
+    //MARK: delegate
     weak var delegate: CountProtocol?
     
+    
+    //MARK: UIComponents
     private let waterCanImageView = UIImageView().then{
         $0.image = Image.wateringCanImage
     }
@@ -45,6 +48,8 @@ final class Test2_SecondViewController: UIViewController {
     
     var completionHandler: handler?
     
+    //MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +57,8 @@ final class Test2_SecondViewController: UIViewController {
         setLayout()
     }
 }
+
+//MARK: Custom Method
 
 extension Test2_SecondViewController {
     
@@ -87,14 +94,14 @@ extension Test2_SecondViewController {
         
     }
     
+    //MARK: Action
+    
     @objc func countTapButton() {
         delegate?.countUp()
     }
     
     @objc
     func popSecondViewController() {
-        
-        
         self.navigationController?.popViewController(animated: true)
     }
 }
