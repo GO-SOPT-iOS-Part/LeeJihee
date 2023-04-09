@@ -13,28 +13,23 @@ final class Test2_FirstViewController: UIViewController {
     
     var count = 0
     
+    private let plantImageView = UIImageView().then{
+        $0.image = Image.sproutImage
+    }
+    
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30)
-        label.textColor = .white
-        label.text = "gggggg"
-        label.backgroundColor = .black
-        label.makeCornerRound(radius: 15)
+        label.text = "화분에 물주기"
+        label.font = .systemFont(ofSize: 24)
         label.textAlignment = .center
         return label
     }()
     
-    private lazy var nextButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("다음으로!", for: .normal)
-        button.backgroundColor = .blue
-        button.setTitleColor(.white, for: .normal)
-        button.makeCornerRound(radius: 10)
-        button.addTarget(self,
-                         action: #selector(pushToSecondViewController),
-                         for: .touchUpInside)
-        return button
-    }()
+    private lazy var nextButton = CustomButton("다음으로!").then{
+        $0.addTarget(self,
+                      action: #selector(pushToSecondViewController),
+                      for: .touchUpInside)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +49,15 @@ private extension Test2_FirstViewController {
     
     func setLayout() {
         
-        [nameLabel, nextButton].forEach {
+        [plantImageView, nameLabel, nextButton].forEach {
             
             view.addSubview($0)
+        }
+        
+        plantImageView.snp.makeConstraints{
+            $0.width.height.equalTo(100)
+            $0.bottom.equalTo(nameLabel.snp.top).offset(-20)
+            $0.centerX.equalToSuperview()
         }
 
         nameLabel.snp.makeConstraints{
@@ -65,7 +66,7 @@ private extension Test2_FirstViewController {
         }
         nextButton.snp.makeConstraints{
             $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview().inset(50)
+            $0.leading.trailing.equalToSuperview().inset(100)
         }
     }
     
@@ -83,9 +84,13 @@ extension Test2_FirstViewController: CountProtocol {
         count += 1
         print(count)
         if count<10 {
+            plantImageView.image = Image.deadImage
             nameLabel.text = "더 눌러봐.. \(count)"
+            nameLabel.textColor = colors.deadGreen
         } else {
+            plantImageView.image = Image.plantImage
             nameLabel.text = "충분히 눌렀네요! \(count)"
+            nameLabel.textColor = colors.oliveGreen
         }
     }
     
