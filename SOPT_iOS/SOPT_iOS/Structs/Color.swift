@@ -8,8 +8,8 @@
 import UIKit
 
 struct Colors {
-    static let titleColor = UIColor(named: "TitleColor")
-    static let oliveGreen = UIColor(named: "OliveGreen")
-    static let deadGreen = UIColor(named: "DeadGreen")
-    static let liveGreen = UIColor(named: "LiveGreen")
+    static let titleColor = UIColor(named: "TitleColor")!
+    static let oliveGreen = UIColor(named: "OliveGreen")!
+    static let deadGreen = UIColor(named: "DeadGreen")!
+    static let liveGreen = UIColor(named: "LiveGreen")!
 }
