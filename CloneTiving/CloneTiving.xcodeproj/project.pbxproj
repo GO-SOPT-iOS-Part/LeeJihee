@@ -19,6 +19,8 @@
 		36110C5429E4675F000ED129 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5329E4675F000ED129 /* UIFont+.swift */; };
 		36110C5629E467AA000ED129 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5529E467AA000ED129 /* UIButton+.swift */; };
 		36110C5829E467C3000ED129 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5729E467C3000ED129 /* UITextField+.swift */; };
+		36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5929E46F8C000ED129 /* UIStackView+.swift */; };
+		36110C5C29E47339000ED129 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5B29E47339000ED129 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		36110C5329E4675F000ED129 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		36110C5529E467AA000ED129 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		36110C5729E467C3000ED129 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		36110C5929E46F8C000ED129 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		36110C5B29E47339000ED129 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				36110C4F29E4660E000ED129 /* UIView+.swift */,
+				36110C5929E46F8C000ED129 /* UIStackView+.swift */,
 				36110C5529E467AA000ED129 /* UIButton+.swift */,
 				36110C5129E46619000ED129 /* UIColor+.swift */,
 				36110C5329E4675F000ED129 /* UIFont+.swift */,
@@ -95,6 +100,7 @@
 		36110C4D29E465E3000ED129 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				36110C5B29E47339000ED129 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,8 +192,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				36110C5029E4660E000ED129 /* UIView+.swift in Sources */,
+				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
 				36110C3729E46285000ED129 /* SignInViewController.swift in Sources */,
+				36110C5C29E47339000ED129 /* LoginView.swift in Sources */,
 				36110C3329E46285000ED129 /* AppDelegate.swift in Sources */,
 				36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */,
 				36110C5429E4675F000ED129 /* UIFont+.swift in Sources */,
