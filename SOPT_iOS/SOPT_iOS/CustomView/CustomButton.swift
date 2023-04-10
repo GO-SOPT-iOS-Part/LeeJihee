@@ -18,16 +18,18 @@ class CustomButton: UIButton {
         super.init(frame: .zero)
     }
     
-    init(_ text: String){
+    
+    init(_ text: String,  color: UIColor = Colors.oliveGreen, radius: CGFloat = 15){
         super.init(frame: .zero)
-        setButtonStyle(text)
+        setButtonStyle(text,color,radius)
     }
     
-    private func setButtonStyle(_ text: String) {
-        self.backgroundColor = colors.oliveGreen
+    private func setButtonStyle(_ text: String, _ color: UIColor = Colors.oliveGreen, _ radius: CGFloat = 15) {
+        self.backgroundColor = color
         self.setTitle(text, for: .normal)
-        self.makeCornerRound(radius: 15)
+        self.makeCornerRound(radius: radius)
         self.setTitleColor(.white, for: .normal)
     }
+    
 
 }

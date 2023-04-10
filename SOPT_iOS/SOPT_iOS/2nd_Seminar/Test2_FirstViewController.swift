@@ -27,7 +27,7 @@ final class Test2_FirstViewController: UIViewController {
         return label
     }()
     
-    private lazy var nextButton = CustomButton("다음으로!").then{
+    private lazy var nextButton = CustomButton("다음으로!", radius: 10).then{
         $0.addTarget(self,
                       action: #selector(nextButtonDidTap),
                       for: .touchUpInside)
