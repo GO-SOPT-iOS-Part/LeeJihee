@@ -20,7 +20,8 @@
 		36110C5629E467AA000ED129 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5529E467AA000ED129 /* UIButton+.swift */; };
 		36110C5829E467C3000ED129 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5729E467C3000ED129 /* UITextField+.swift */; };
 		36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5929E46F8C000ED129 /* UIStackView+.swift */; };
-		36110C5C29E47339000ED129 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5B29E47339000ED129 /* LoginView.swift */; };
+		36110C5F29E49DAA000ED129 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5E29E49DAA000ED129 /* Images.swift */; };
+		36110C6129E4ADD6000ED129 /* LoginSucessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,8 @@
 		36110C5529E467AA000ED129 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		36110C5729E467C3000ED129 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		36110C5929E46F8C000ED129 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
-		36110C5B29E47339000ED129 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		36110C5E29E49DAA000ED129 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSucessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +76,9 @@
 			children = (
 				36110C3229E46285000ED129 /* AppDelegate.swift */,
 				36110C3429E46285000ED129 /* SceneDelegate.swift */,
+				36110C5D29E49D99000ED129 /* Structs */,
 				36110C4C29E46574000ED129 /* Extensions */,
 				36110C4E29E465EB000ED129 /* ViewControllers */,
-				36110C4D29E465E3000ED129 /* Views */,
 				36110C3B29E46287000ED129 /* Assets.xcassets */,
 				36110C3D29E46287000ED129 /* LaunchScreen.storyboard */,
 				36110C4029E46287000ED129 /* Info.plist */,
@@ -97,20 +99,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		36110C4D29E465E3000ED129 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				36110C5B29E47339000ED129 /* LoginView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		36110C4E29E465EB000ED129 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				36110C3629E46285000ED129 /* SignInViewController.swift */,
+				36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		36110C5D29E49D99000ED129 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				36110C5E29E49DAA000ED129 /* Images.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +197,10 @@
 				36110C5029E4660E000ED129 /* UIView+.swift in Sources */,
 				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
+				36110C5F29E49DAA000ED129 /* Images.swift in Sources */,
 				36110C3729E46285000ED129 /* SignInViewController.swift in Sources */,
-				36110C5C29E47339000ED129 /* LoginView.swift in Sources */,
 				36110C3329E46285000ED129 /* AppDelegate.swift in Sources */,
+				36110C6129E4ADD6000ED129 /* LoginSucessViewController.swift in Sources */,
 				36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */,
 				36110C5429E4675F000ED129 /* UIFont+.swift in Sources */,
 				36110C5229E46619000ED129 /* UIColor+.swift in Sources */,
