@@ -27,20 +27,20 @@ final class Test2_SecondViewController: UIViewController {
         let label = UILabel()
         label.text = "물을 얼마나 줄까요?"
         label.font = .systemFont(ofSize: 16)
-        label.textColor = colors.titleColor
+        label.textColor = Colors.titleColor
         label.textAlignment = .center
         return label
     }()
     
     private lazy var touchButton =  CustomButton("눌러줘!").then{
         $0.addTarget(self,
-                     action: #selector(countTapButton),
+                     action: #selector(pushButtonDidTap),
                      for: .touchUpInside)
     }
     
     private lazy var backButton = CustomButton("이전으로~").then{
         $0.addTarget(self,
-                         action: #selector(popSecondViewController),
+                         action: #selector(backButtonDidTap),
                          for: .touchUpInside)
     }
     
@@ -74,7 +74,7 @@ extension Test2_SecondViewController {
         waterCanImageView.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(titleLabel.snp.top).offset(-20)
-            $0.width.height.equalTo(100)
+            $0.width.height.equalTo(UIScreen.main.bounds.width / 4)
         }
         
         titleLabel.snp.makeConstraints{
@@ -83,7 +83,7 @@ extension Test2_SecondViewController {
         
         touchButton.snp.makeConstraints{
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
-            $0.width.equalTo(100)
+            $0.width.equalTo(150)
             $0.centerX.equalToSuperview()
         }
         backButton.snp.makeConstraints{
@@ -96,12 +96,12 @@ extension Test2_SecondViewController {
     
     //MARK: Action
     
-    @objc func countTapButton() {
+    @objc func pushButtonDidTap() {
         delegate?.countUp()
     }
     
     @objc
-    func popSecondViewController() {
-        self.navigationController?.popViewController(animated: true)
+    func backButtonDidTap() {
+        self.dismiss(animated: true)
     }
 }

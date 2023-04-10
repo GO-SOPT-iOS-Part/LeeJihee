@@ -29,7 +29,7 @@ final class Test2_FirstViewController: UIViewController {
     
     private lazy var nextButton = CustomButton("다음으로!").then{
         $0.addTarget(self,
-                      action: #selector(pushToSecondViewController),
+                      action: #selector(nextButtonDidTap),
                       for: .touchUpInside)
     }
     
@@ -60,7 +60,7 @@ private extension Test2_FirstViewController {
         }
         
         plantImageView.snp.makeConstraints{
-            $0.width.height.equalTo(100)
+            $0.height.width.equalTo(UIScreen.main.bounds.width / 4)
             $0.bottom.equalTo(nameLabel.snp.top).offset(-20)
             $0.centerX.equalToSuperview()
         }
@@ -71,31 +71,31 @@ private extension Test2_FirstViewController {
         }
         nextButton.snp.makeConstraints{
             $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview().inset(100)
+            $0.leading.trailing.equalToSuperview().inset(150)
         }
     }
     
     @objc
-    func pushToSecondViewController() {
-        
+    func nextButtonDidTap() {
+        count = 0
         let secondViewController = Test2_SecondViewController()
         secondViewController.delegate = self
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+        self.present(secondViewController, animated: true)
     }
 }
 
 extension Test2_FirstViewController: CountProtocol {
+    
     func countUp() {
         count += 1
-        print(count)
         if count<10 {
             plantImageView.image = Image.deadImage
             nameLabel.text = "더 눌러봐.. \(count)"
-            nameLabel.textColor = colors.deadGreen
+            nameLabel.textColor = Colors.deadGreen
         } else {
             plantImageView.image = Image.plantImage
             nameLabel.text = "충분히 눌렀네요! \(count)"
-            nameLabel.textColor = colors.oliveGreen
+            nameLabel.textColor = Colors.oliveGreen
         }
     }
     
