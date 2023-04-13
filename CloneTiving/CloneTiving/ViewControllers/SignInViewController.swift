@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UISheetPresentationControllerDelegate {
     
     //MARK: UIComponents
     
@@ -102,8 +102,27 @@ class SignInViewController: UIViewController {
     }
     
     @objc func nickNameButtonDidTap(){
+        let nextVC = NicknameSettingViewController()
         
-        //self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+        if let sheet = nextVC.sheetPresentationController {
+            
+            //지원할 크기 지정
+            sheet.detents = [.medium(), .large()]
+            //크기 변하는거 감지
+            sheet.delegate = self
+            
+            //시트 상단에 그래버 표시 (기본 값은 false)
+            sheet.prefersGrabberVisible = true
+            
+            sheet.largestUndimmedDetentIdentifier = .medium
+            
+            //처음 크기 지정 (기본 값은 가장 작은 크기)
+            //sheet.selectedDetentIdentifier = .large
+            
+            //뒤 배경 흐리게 제거 (기본 값은 모든 크기에서 배경 흐리게 됨)
+            //sheet.largestUndimmedDetentIdentifier = .medium
+        }
+        self.present(nextVC, animated: true)
     }
     
     
@@ -200,7 +219,7 @@ extension SignInViewController: UITextFieldDelegate{
         }
         textField.layer.borderWidth = 0
     }
- 
+    
     func checkIsEnableButton(){
         if loginButton.isEnabled {
             self.loginButton.backgroundColor = .tvingRed
