@@ -10,32 +10,44 @@ import SnapKit
 import Then
 
 class LoginSucessViewController: UIViewController {
-    
+
     private var emailtext: String = ""
     
     private let logoImageView = UIImageView().then{
         $0.image = Images.logoImage
     }
 
-    private var greetingLabel = UILabel().then{
-        $0.text = "님 반가워요!"
-        $0.font = .systemFont(ofSize: 30)
+    private lazy var greetingLabel = UILabel().then{
+        $0.text = emailtext + "님 반가워요!"
+        $0.font = .tvingSemiBold(ofSize: 30)
         $0.textAlignment = .center
         $0.textColor = .white
     }
     private lazy var mainButton = UIButton().then{
         $0.setTitle("메인으로", for: .normal)
         $0.backgroundColor = .tvingRed
+        $0.titleLabel?.font = .tvingRegular(ofSize: 14)
         $0.makeCornerRound(radius: 5)
+        $0.addTarget(self, action: #selector(mainButtonDidTap), for: .touchUpInside)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
     }
+    
+    @objc private func mainButtonDidTap(){
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    public func dataBind(_ text:String){
+        emailtext = text
+    }
 }
 
 private extension LoginSucessViewController {
     func setUI(){
+        view.backgroundColor = .black
         setViewHierarchy()
         setLayout()
     }
@@ -62,3 +74,5 @@ private extension LoginSucessViewController {
         }
     }
 }
+
+

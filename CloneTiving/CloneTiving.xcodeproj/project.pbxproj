@@ -22,6 +22,11 @@
 		36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5929E46F8C000ED129 /* UIStackView+.swift */; };
 		36110C5F29E49DAA000ED129 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C5E29E49DAA000ED129 /* Images.swift */; };
 		36110C6129E4ADD6000ED129 /* LoginSucessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */; };
+		36110C7329E8026C000ED129 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36110C7029E8026B000ED129 /* Pretendard-Regular.otf */; };
+		36110C7429E8026C000ED129 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36110C7129E8026B000ED129 /* Pretendard-Bold.otf */; };
+		36110C7529E8026C000ED129 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36110C7229E8026C000ED129 /* Pretendard-SemiBold.otf */; };
+		36110C7829E803BE000ED129 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C7729E803BE000ED129 /* CustomTextField.swift */; };
+		36110C7A29E814D0000ED129 /* TextFieldModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C7929E814CF000ED129 /* TextFieldModes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		36110C5929E46F8C000ED129 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		36110C5E29E49DAA000ED129 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSucessViewController.swift; sourceTree = "<group>"; };
+		36110C7029E8026B000ED129 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		36110C7129E8026B000ED129 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		36110C7229E8026C000ED129 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		36110C7729E803BE000ED129 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		36110C7929E814CF000ED129 /* TextFieldModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +84,13 @@
 		36110C3129E46285000ED129 /* CloneTiving */ = {
 			isa = PBXGroup;
 			children = (
+				36110C6F29E80238000ED129 /* Font */,
 				36110C3229E46285000ED129 /* AppDelegate.swift */,
 				36110C3429E46285000ED129 /* SceneDelegate.swift */,
-				36110C5D29E49D99000ED129 /* Structs */,
+				36110C5D29E49D99000ED129 /* Structs&Enums */,
 				36110C4C29E46574000ED129 /* Extensions */,
 				36110C4E29E465EB000ED129 /* ViewControllers */,
+				36110C7629E803A4000ED129 /* Views */,
 				36110C3B29E46287000ED129 /* Assets.xcassets */,
 				36110C3D29E46287000ED129 /* LaunchScreen.storyboard */,
 				36110C4029E46287000ED129 /* Info.plist */,
@@ -108,12 +120,31 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		36110C5D29E49D99000ED129 /* Structs */ = {
+		36110C5D29E49D99000ED129 /* Structs&Enums */ = {
 			isa = PBXGroup;
 			children = (
 				36110C5E29E49DAA000ED129 /* Images.swift */,
+				36110C7929E814CF000ED129 /* TextFieldModes.swift */,
 			);
-			path = Structs;
+			path = "Structs&Enums";
+			sourceTree = "<group>";
+		};
+		36110C6F29E80238000ED129 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				36110C7129E8026B000ED129 /* Pretendard-Bold.otf */,
+				36110C7029E8026B000ED129 /* Pretendard-Regular.otf */,
+				36110C7229E8026C000ED129 /* Pretendard-SemiBold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		36110C7629E803A4000ED129 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				36110C7729E803BE000ED129 /* CustomTextField.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				36110C3F29E46287000ED129 /* LaunchScreen.storyboard in Resources */,
+				36110C7429E8026C000ED129 /* Pretendard-Bold.otf in Resources */,
+				36110C7529E8026C000ED129 /* Pretendard-SemiBold.otf in Resources */,
+				36110C7329E8026C000ED129 /* Pretendard-Regular.otf in Resources */,
 				36110C3C29E46287000ED129 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36110C7A29E814D0000ED129 /* TextFieldModes.swift in Sources */,
 				36110C5029E4660E000ED129 /* UIView+.swift in Sources */,
 				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
@@ -202,6 +237,7 @@
 				36110C3329E46285000ED129 /* AppDelegate.swift in Sources */,
 				36110C6129E4ADD6000ED129 /* LoginSucessViewController.swift in Sources */,
 				36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */,
+				36110C7829E803BE000ED129 /* CustomTextField.swift in Sources */,
 				36110C5429E4675F000ED129 /* UIFont+.swift in Sources */,
 				36110C5229E46619000ED129 /* UIColor+.swift in Sources */,
 				36110C5829E467C3000ED129 /* UITextField+.swift in Sources */,

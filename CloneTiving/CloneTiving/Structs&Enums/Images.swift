@@ -9,5 +9,6 @@ import UIKit
 
 struct Images {
     static let eyeSlashImage = UIImage(named: "eye-slash")!
-    static let logoImage = UIImage(named: "LogoImage")
+    static let logoImage = UIImage(named: "LogoImage")!
+    static let cancelImage = UIImage(named: "x-circle")!
 }
