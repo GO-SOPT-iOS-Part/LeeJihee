@@ -81,7 +81,11 @@ class SignInViewController: UIViewController, UISheetPresentationControllerDeleg
         $0.setUnderline()
     }
     
+    //MARK: 심화과제 구현
     
+    private let backgroundView = BackgroundView()
+    
+    private let nicknameSettingView = NicknameSettingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,27 +106,17 @@ class SignInViewController: UIViewController, UISheetPresentationControllerDeleg
     }
     
     @objc func nickNameButtonDidTap(){
-        let nextVC = NicknameSettingViewController()
+        let bottomSheetVC = BottomSheetViewController()
+            // 1
+            bottomSheetVC.modalPresentationStyle = .overFullScreen
+            // 2
+            self.present(bottomSheetVC, animated: false, completion: nil)
         
-        if let sheet = nextVC.sheetPresentationController {
-            
-            //지원할 크기 지정
-            sheet.detents = [.medium(), .large()]
-            //크기 변하는거 감지
-            sheet.delegate = self
-            
-            //시트 상단에 그래버 표시 (기본 값은 false)
-            sheet.prefersGrabberVisible = true
-            
-            sheet.largestUndimmedDetentIdentifier = .medium
-            
-            //처음 크기 지정 (기본 값은 가장 작은 크기)
-            //sheet.selectedDetentIdentifier = .large
-            
-            //뒤 배경 흐리게 제거 (기본 값은 모든 크기에서 배경 흐리게 됨)
-            //sheet.largestUndimmedDetentIdentifier = .medium
-        }
-        self.present(nextVC, animated: true)
+//        if let sheet = nextVC.sheetPresentationController {
+//            sheet.detents = [.medium(), .large()]
+//            sheet.delegate = self
+//            sheet.prefersGrabberVisible = true
+//        }
     }
     
     
@@ -138,6 +132,8 @@ private extension SignInViewController {
         view.backgroundColor = .black
         self.navigationController?.navigationBar.tintColor = .white
         view.addSubviews(loginLabel,idTextField,passwordTextField,loginButton,settingStackView,makeNicknameStackView)
+        view.addSubview(backgroundView)
+        backgroundView.addSubviews(nicknameSettingView)
         
         idTextField.delegate = self
         passwordTextField.delegate = self
@@ -177,8 +173,17 @@ private extension SignInViewController {
         makeNicknameStackView.snp.makeConstraints{
             $0.centerX.equalToSuperview().offset(10)
             $0.top.equalTo(settingStackView.snp.bottom).offset(20)
-            
         }
+        
+        backgroundView.snp.makeConstraints{
+            $0.top.equalTo(view.snp.bottom)
+        }
+        
+        nicknameSettingView.snp.makeConstraints{
+            $0.height.equalTo(UIScreen.main.bounds.height / 2)
+        }
+        
+        
     }
 }
 
@@ -188,7 +193,6 @@ extension SignInViewController: UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         textField.makeBorder(width: 0.7, color: .tvingGray1)
         if idTextField.text!.contains("@")  && passwordTextField.text!.count >= 10 {
             self.loginButton.isEnabled = true

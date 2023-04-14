@@ -7,7 +7,7 @@
 
 import UIKit
 
-class customTextField: UITextField {
+final class customTextField: UITextField {
     
     var isVisable = true
     
