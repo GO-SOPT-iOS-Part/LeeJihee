@@ -40,8 +40,8 @@ class BottomSheetViewController: UIViewController {
         setupUI()
         
         let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
-            dimmedView.addGestureRecognizer(dimmedTap)
-            dimmedView.isUserInteractionEnabled = true
+        dimmedView.addGestureRecognizer(dimmedTap)
+        dimmedView.isUserInteractionEnabled = true
     }
     
     // 3
@@ -49,34 +49,25 @@ class BottomSheetViewController: UIViewController {
         view.addSubview(dimmedView)
         view.addSubview(bottomSheetView)
         bottomSheetView.addSubview(nickNameSettingView)
-        dimmedView.alpha = 0.0
-        
         setupLayout()
     }
     
-    // 4
     private func setupLayout() {
         
         dimmedView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
-        let topConstant =  view.safeAreaInsets.bottom + view.safeAreaLayoutGuide.layoutFrame.height
-        bottomSheetView.snp.makeConstraints{
-            $0.top.equalTo(view.snp.bottom).inset(topConstant)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
         
         bottomSheetView.snp.makeConstraints{
+            $0.height.equalTo(0)
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.top.equalToSuperview().inset(defaultHeight)
         }
-       
         nickNameSettingView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
     }
     var defaultHeight: CGFloat = UIScreen.main.bounds.height / 2
-
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -85,16 +76,34 @@ class BottomSheetViewController: UIViewController {
     
     
     private func showBottomSheet() {
+        bottomSheetView.snp.remakeConstraints{
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalToSuperview().inset(defaultHeight)
+        }
+        UIView.animate(withDuration: 1.0, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
         
     }
     
     private func hideBottomSheetAndGoBack() {
         print("tap")
-        self.bottomSheetView.snp.remakeConstraints { (remake) in
-                    remake.top.bottom.left.right.equalTo(self.view) // 모든 간격을 view에 맞추어 재설정한다.
-                }
+        bottomSheetView.snp.remakeConstraints { (remake) in
+            remake.top.equalTo(view.snp.bottom)
+            remake.leading.trailing.equalToSuperview()
+        }
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            self.view.layoutIfNeeded()
+            self.dimmedView.alpha = 0.0
+        }){ _ in
+            if self.presentingViewController != nil {
+                self.dismiss(animated: false, completion: nil)
+            }
+        }
+        
     }
-
+    
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
         hideBottomSheetAndGoBack()
     }

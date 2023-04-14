@@ -132,8 +132,7 @@ private extension SignInViewController {
         view.backgroundColor = .black
         self.navigationController?.navigationBar.tintColor = .white
         view.addSubviews(loginLabel,idTextField,passwordTextField,loginButton,settingStackView,makeNicknameStackView)
-        view.addSubview(backgroundView)
-        backgroundView.addSubviews(nicknameSettingView)
+        
         
         idTextField.delegate = self
         passwordTextField.delegate = self
@@ -174,15 +173,6 @@ private extension SignInViewController {
             $0.centerX.equalToSuperview().offset(10)
             $0.top.equalTo(settingStackView.snp.bottom).offset(20)
         }
-        
-        backgroundView.snp.makeConstraints{
-            $0.top.equalTo(view.snp.bottom)
-        }
-        
-        nicknameSettingView.snp.makeConstraints{
-            $0.height.equalTo(UIScreen.main.bounds.height / 2)
-        }
-        
         
     }
 }
