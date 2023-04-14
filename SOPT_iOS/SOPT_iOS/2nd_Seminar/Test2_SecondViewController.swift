@@ -20,7 +20,7 @@ final class Test2_SecondViewController: UIViewController {
     
     //MARK: UIComponents
     private let waterCanImageView = UIImageView().then{
-        $0.image = Image.wateringCanImage
+        $0.image = Images.wateringCanImage
     }
     
     private let titleLabel: UILabel = {
@@ -74,7 +74,7 @@ extension Test2_SecondViewController {
         waterCanImageView.snp.makeConstraints{
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(titleLabel.snp.top).offset(-20)
-            $0.width.height.equalTo(UIScreen.main.bounds.width / 4)
+            $0.size.equalTo(Constant.widith / 4)
         }
         
         titleLabel.snp.makeConstraints{

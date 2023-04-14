@@ -12,7 +12,7 @@
 		36110C1129E149B7000ED129 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1029E149B7000ED129 /* Test1ViewController.swift */; };
 		36110C1329E154B5000ED129 /* Test2_FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */; };
 		36110C1529E1571F000ED129 /* Test2_SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */; };
-		36110C1829E29360000ED129 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1729E29360000ED129 /* Image.swift */; };
+		36110C1829E29360000ED129 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1729E29360000ED129 /* Images.swift */; };
 		36110C1B29E299C9000ED129 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1A29E299C9000ED129 /* Color.swift */; };
 		36110C1E29E29BA5000ED129 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1D29E29BA5000ED129 /* CustomButton.swift */; };
 		3637A48729D806BC00289A15 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637A48629D806BC00289A15 /* FirstViewController.swift */; };
@@ -25,6 +25,7 @@
 		369B6DEC29DF15C900391F13 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B6DEB29DF15C900391F13 /* UIView+.swift */; };
 		369B6E4B29E1410800391F13 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 369B6E4A29E1410800391F13 /* SnapKit */; };
 		369B6E4E29E143EB00391F13 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 369B6E4D29E143EB00391F13 /* Then */; };
+		36D3CC6D29E8CD5C00B62D9B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3CC6C29E8CD5C00B62D9B /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,7 @@
 		36110C1029E149B7000ED129 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
 		36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2_FirstViewController.swift; sourceTree = "<group>"; };
 		36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2_SecondViewController.swift; sourceTree = "<group>"; };
-		36110C1729E29360000ED129 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		36110C1729E29360000ED129 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		36110C1A29E299C9000ED129 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		36110C1D29E29BA5000ED129 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3637A48629D806BC00289A15 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		367315F229D7D79600531D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		367315F429D7D79600531D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		369B6DEB29DF15C900391F13 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		36D3CC6C29E8CD5C00B62D9B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +78,9 @@
 		36110C1629E29346000ED129 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				36110C1729E29360000ED129 /* Image.swift */,
+				36110C1729E29360000ED129 /* Images.swift */,
 				36110C1A29E299C9000ED129 /* Color.swift */,
+				36D3CC6C29E8CD5C00B62D9B /* Constant.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -228,7 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				36110C1129E149B7000ED129 /* Test1ViewController.swift in Sources */,
-				36110C1829E29360000ED129 /* Image.swift in Sources */,
+				36110C1829E29360000ED129 /* Images.swift in Sources */,
+				36D3CC6D29E8CD5C00B62D9B /* Constant.swift in Sources */,
 				36110C0F29E1484F000ED129 /* DelegateSecondViewControllerViewController.swift in Sources */,
 				369B6DEC29DF15C900391F13 /* UIView+.swift in Sources */,
 				36110C1E29E29BA5000ED129 /* CustomButton.swift in Sources */,

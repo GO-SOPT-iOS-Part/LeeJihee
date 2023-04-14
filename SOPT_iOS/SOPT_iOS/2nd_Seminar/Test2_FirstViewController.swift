@@ -16,7 +16,7 @@ final class Test2_FirstViewController: UIViewController {
     //MARK: UIcomponents
     
     private let plantImageView = UIImageView().then{
-        $0.image = Image.sproutImage
+        $0.image = Images.sproutImage
     }
     
     private lazy var nameLabel: UILabel = {
@@ -60,7 +60,7 @@ private extension Test2_FirstViewController {
         }
         
         plantImageView.snp.makeConstraints{
-            $0.height.width.equalTo(UIScreen.main.bounds.width / 4)
+            $0.size.equalTo(Constant.widith / 4)
             $0.bottom.equalTo(nameLabel.snp.top).offset(-20)
             $0.centerX.equalToSuperview()
         }
@@ -88,15 +88,13 @@ extension Test2_FirstViewController: CountProtocol {
     
     func countUp() {
         count += 1
-        if count<10 {
-            plantImageView.image = Image.deadImage
-            nameLabel.text = "더 눌러봐.. \(count)"
-            nameLabel.textColor = Colors.deadGreen
-        } else {
-            plantImageView.image = Image.plantImage
-            nameLabel.text = "충분히 눌렀네요! \(count)"
-            nameLabel.textColor = Colors.oliveGreen
-        }
+        count < 10 ? setCountUI(Images.deadImage, "더 눌러봐..", Colors.deadGreen) : setCountUI(Images.plantImage, "충분히 눌렀네요!", Colors.oliveGreen)
+    }
+    
+    func setCountUI(_ image: UIImage,_ text: String, _ color: UIColor){
+        plantImageView.image = image
+        nameLabel.text = text + String(count)
+        nameLabel.textColor = color
     }
     
     
