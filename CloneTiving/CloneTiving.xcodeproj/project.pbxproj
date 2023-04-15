@@ -27,9 +27,6 @@
 		36110C7529E8026C000ED129 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36110C7229E8026C000ED129 /* Pretendard-SemiBold.otf */; };
 		36110C7829E803BE000ED129 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C7729E803BE000ED129 /* CustomTextField.swift */; };
 		36110C7A29E814D0000ED129 /* TextFieldModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C7929E814CF000ED129 /* TextFieldModes.swift */; };
-		36110C7C29E843BD000ED129 /* NicknameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C7B29E843BD000ED129 /* NicknameSettingViewController.swift */; };
-		3663C97829E939FC00E64A0A /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C97729E939FC00E64A0A /* NicknameSettingView.swift */; };
-		3663C97A29E93F6500E64A0A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C97929E93F6500E64A0A /* BackgroundView.swift */; };
 		3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,9 +51,6 @@
 		36110C7229E8026C000ED129 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		36110C7729E803BE000ED129 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		36110C7929E814CF000ED129 /* TextFieldModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModes.swift; sourceTree = "<group>"; };
-		36110C7B29E843BD000ED129 /* NicknameSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingViewController.swift; sourceTree = "<group>"; };
-		3663C97729E939FC00E64A0A /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
-		3663C97929E93F6500E64A0A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,7 +118,6 @@
 			children = (
 				36110C3629E46285000ED129 /* SignInViewController.swift */,
 				36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */,
-				36110C7B29E843BD000ED129 /* NicknameSettingViewController.swift */,
 				3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */,
 			);
 			path = ViewControllers;
@@ -153,8 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				36110C7729E803BE000ED129 /* CustomTextField.swift */,
-				3663C97729E939FC00E64A0A /* NicknameSettingView.swift */,
-				3663C97929E93F6500E64A0A /* BackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,16 +232,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				36110C7A29E814D0000ED129 /* TextFieldModes.swift in Sources */,
-				36110C7C29E843BD000ED129 /* NicknameSettingViewController.swift in Sources */,
 				36110C5029E4660E000ED129 /* UIView+.swift in Sources */,
 				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
 				36110C5F29E49DAA000ED129 /* Images.swift in Sources */,
 				36110C3729E46285000ED129 /* SignInViewController.swift in Sources */,
-				3663C97829E939FC00E64A0A /* NicknameSettingView.swift in Sources */,
 				36110C3329E46285000ED129 /* AppDelegate.swift in Sources */,
 				36110C6129E4ADD6000ED129 /* LoginSucessViewController.swift in Sources */,
-				3663C97A29E93F6500E64A0A /* BackgroundView.swift in Sources */,
 				36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */,
 				3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */,
 				36110C7829E803BE000ED129 /* CustomTextField.swift in Sources */,

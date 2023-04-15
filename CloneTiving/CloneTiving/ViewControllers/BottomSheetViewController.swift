@@ -8,9 +8,17 @@
 import UIKit
 import SnapKit
 
+protocol DataBindProtocol: AnyObject {
+    func dataBind(text: String)
+}
+
+
 class BottomSheetViewController: UIViewController {
     
-    // 1
+    var defaultHeight: CGFloat = UIScreen.main.bounds.height / 2
+    weak var delegate: DataBindProtocol?
+    
+    //MARK: UIComponent
     private let dimmedView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
@@ -20,60 +28,56 @@ class BottomSheetViewController: UIViewController {
     private let bottomSheetView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        
-        // 좌측 상단과 좌측 하단의 cornerRadius를 10으로 설정한다.
         view.layer.cornerRadius = 10
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.clipsToBounds = true
         return view
     }()
     
-    private let nickNameSettingView = NicknameSettingView()
+    private let nickNameLabel = UILabel().then{
+        $0.text = "닉네임을 입력해주세요"
+        $0.font = .tvingRegular(ofSize: 24)
+    }
     
-    // 2
-    private var bottomSheetViewTopConstraint: NSLayoutConstraint!
+    private lazy var nickNameTextField = UITextField().then{
+        $0.placeholder = "닉네임을 입력해주세요"
+        $0.makeCornerRound(radius: 5)
+        $0.backgroundColor = .tvingGray4
+        $0.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
+        $0.leftViewMode = .always
+        $0.clearButtonMode = .whileEditing
+        $0.textColor = .white
+    }
     
+    private lazy var settingButton = UIButton().then{
+        $0.setTitle("저장하기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.makeCornerRound(radius: 5)
+        $0.backgroundColor = .tvingRed
+        $0.addTarget(self, action: #selector(dimmedViewTapped), for: .touchUpInside)
+        
+    }
     
-    // 2
+    @objc func settingButtonDidTap(){
+        
+    }
+    
+    //MARK: life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setUI()
         
         let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
         dimmedView.addGestureRecognizer(dimmedTap)
         dimmedView.isUserInteractionEnabled = true
     }
     
-    // 3
-    private func setupUI() {
-        view.addSubview(dimmedView)
-        view.addSubview(bottomSheetView)
-        bottomSheetView.addSubview(nickNameSettingView)
-        setupLayout()
-    }
-    
-    private func setupLayout() {
-        
-        dimmedView.snp.makeConstraints{
-            $0.edges.equalToSuperview()
-        }
-        
-        bottomSheetView.snp.makeConstraints{
-            $0.height.equalTo(0)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
-        nickNameSettingView.snp.makeConstraints{
-            $0.edges.equalToSuperview()
-        }
-    }
-    var defaultHeight: CGFloat = UIScreen.main.bounds.height / 2
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showBottomSheet()
     }
     
+    //MARK: Custom Method
     
     private func showBottomSheet() {
         bottomSheetView.snp.remakeConstraints{
@@ -87,7 +91,6 @@ class BottomSheetViewController: UIViewController {
     }
     
     private func hideBottomSheetAndGoBack() {
-        print("tap")
         bottomSheetView.snp.remakeConstraints { (remake) in
             remake.top.equalTo(view.snp.bottom)
             remake.leading.trailing.equalToSuperview()
@@ -101,10 +104,55 @@ class BottomSheetViewController: UIViewController {
                 self.dismiss(animated: false, completion: nil)
             }
         }
-        
     }
     
+    //MARK: Action
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
+        
+        if let text = nickNameTextField.text {
+            delegate?.dataBind(text: text)
+        }
         hideBottomSheetAndGoBack()
+    }
+}
+
+private extension BottomSheetViewController {
+    func setUI(){
+        setViewHierarchy()
+        setLayout()
+    }
+    
+    func setViewHierarchy(){
+        view.addSubview(dimmedView)
+        view.addSubview(bottomSheetView)
+        bottomSheetView.addSubviews(nickNameLabel,nickNameTextField,settingButton)
+    }
+    
+    func setLayout(){
+        dimmedView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
+        }
+        
+        bottomSheetView.snp.makeConstraints{
+            $0.height.equalTo(0)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        nickNameLabel.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(50)
+            $0.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        nickNameTextField.snp.makeConstraints{
+            $0.top.equalTo(nickNameLabel.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(52)
+        }
+        settingButton.snp.makeConstraints{
+            $0.bottom.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.equalTo(52)
+        }
+        
     }
 }

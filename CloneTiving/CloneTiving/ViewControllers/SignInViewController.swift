@@ -14,6 +14,7 @@ class SignInViewController: UIViewController, UISheetPresentationControllerDeleg
     
     //MARK: UIComponents
     
+    private var nickNameText = ""
     
     private let loginLabel = UILabel().then{
         $0.text = "TIVNG ID 로그인"
@@ -83,10 +84,6 @@ class SignInViewController: UIViewController, UISheetPresentationControllerDeleg
     
     //MARK: 심화과제 구현
     
-    private let backgroundView = BackgroundView()
-    
-    private let nicknameSettingView = NicknameSettingView()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -101,22 +98,24 @@ class SignInViewController: UIViewController, UISheetPresentationControllerDeleg
     @objc func loginButtonDidTap(){
         let nextVC = LoginSucessViewController()
         guard let text = idTextField.text else { return }
-        nextVC.dataBind(text)
+        
+        nickNameText.isEmpty ? nextVC.dataBind(text) : nextVC.dataBind(nickNameText)
+        
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc func nickNameButtonDidTap(){
         let bottomSheetVC = BottomSheetViewController()
-            // 1
-            bottomSheetVC.modalPresentationStyle = .overFullScreen
-            // 2
-            self.present(bottomSheetVC, animated: false, completion: nil)
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        bottomSheetVC.delegate = self
+        self.present(bottomSheetVC, animated: false, completion: nil)
         
-//        if let sheet = nextVC.sheetPresentationController {
-//            sheet.detents = [.medium(), .large()]
-//            sheet.delegate = self
-//            sheet.prefersGrabberVisible = true
-//        }
+        
+        //        if let sheet = nextVC.sheetPresentationController {
+        //            sheet.detents = [.medium(), .large()]
+        //            sheet.delegate = self
+        //            sheet.prefersGrabberVisible = true
+        //        }
     }
     
     
@@ -222,5 +221,11 @@ extension SignInViewController: UITextFieldDelegate{
             self.loginButton.backgroundColor = .none
             self.loginButton.setTitleColor(.tvingGray2, for: .normal)
         }
+    }
+}
+extension SignInViewController: DataBindProtocol {
+    
+    func dataBind(text: String) {
+        nickNameText = text
     }
 }
