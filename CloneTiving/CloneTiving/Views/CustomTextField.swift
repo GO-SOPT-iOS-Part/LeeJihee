@@ -9,6 +9,11 @@ import UIKit
 
 final class customTextField: UITextField {
     
+    enum TextFieldType: String {
+        case id = "아이디"
+        case password = "비밀번호"
+    }
+    
     var isVisable = true
     
     //MARK: UIComponents
@@ -31,8 +36,6 @@ final class customTextField: UITextField {
     }
     
     //MARK: Life Cycles
-    override init(frame: CGRect) {
-        super.init(frame: frame)    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

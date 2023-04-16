@@ -13,9 +13,9 @@ protocol DataBindProtocol: AnyObject {
 }
 
 
-class BottomSheetViewController: UIViewController {
+final class BottomSheetViewController: UIViewController {
     
-    var defaultHeight: CGFloat = UIScreen.main.bounds.height / 2
+    var defaultHeight: CGFloat = Constant.height.isHalf
     weak var delegate: DataBindProtocol?
     
     //MARK: UIComponent
@@ -34,42 +34,13 @@ class BottomSheetViewController: UIViewController {
         return view
     }()
     
-    private let nickNameLabel = UILabel().then{
-        $0.text = "닉네임을 입력해주세요"
-        $0.font = .tvingRegular(ofSize: 24)
-    }
-    
-    private lazy var nickNameTextField = UITextField().then{
-        $0.placeholder = "닉네임을 입력해주세요"
-        $0.makeCornerRound(radius: 5)
-        $0.backgroundColor = .tvingGray4
-        $0.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
-        $0.leftViewMode = .always
-        $0.clearButtonMode = .whileEditing
-        $0.textColor = .white
-    }
-    
-    private lazy var settingButton = UIButton().then{
-        $0.setTitle("저장하기", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.makeCornerRound(radius: 5)
-        $0.backgroundColor = .tvingRed
-        $0.addTarget(self, action: #selector(dimmedViewTapped), for: .touchUpInside)
-        
-    }
-    
-    @objc func settingButtonDidTap(){
-        
-    }
+    private let nicknameSettingView = NickNameSettingView()
     
     //MARK: life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        
-        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
-        dimmedView.addGestureRecognizer(dimmedTap)
-        dimmedView.isUserInteractionEnabled = true
+        addTarget()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,6 +52,7 @@ class BottomSheetViewController: UIViewController {
     
     private func showBottomSheet() {
         bottomSheetView.snp.remakeConstraints{
+            $0.height.equalTo(defaultHeight)
             $0.leading.trailing.bottom.equalToSuperview()
             $0.top.equalToSuperview().inset(defaultHeight)
         }
@@ -91,9 +63,10 @@ class BottomSheetViewController: UIViewController {
     }
     
     private func hideBottomSheetAndGoBack() {
-        bottomSheetView.snp.remakeConstraints { (remake) in
-            remake.top.equalTo(view.snp.bottom)
-            remake.leading.trailing.equalToSuperview()
+        bottomSheetView.snp.remakeConstraints {
+            $0.height.equalTo(defaultHeight)
+            $0.top.equalTo(view.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
         }
         
         UIView.animate(withDuration: 1.0, animations: {
@@ -104,16 +77,31 @@ class BottomSheetViewController: UIViewController {
                 self.dismiss(animated: false, completion: nil)
             }
         }
+        
+        if let text = nicknameSettingView.nickNameTextField.text {
+            delegate?.dataBind(text: text)
+        }
+    }
+    
+    private func addTarget(){
+        nicknameSettingView.settingButton.addTarget(self, action: #selector(settingButtonDidTap), for: .touchUpInside)
+        
+        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
+        dimmedView.addGestureRecognizer(dimmedTap)
+        dimmedView.isUserInteractionEnabled = true
     }
     
     //MARK: Action
-    @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
-        
-        if let text = nickNameTextField.text {
-            delegate?.dataBind(text: text)
-        }
+    
+    @objc func settingButtonDidTap(){
         hideBottomSheetAndGoBack()
     }
+    
+    @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
+        hideBottomSheetAndGoBack()
+    }
+    
+    
 }
 
 private extension BottomSheetViewController {
@@ -123,9 +111,9 @@ private extension BottomSheetViewController {
     }
     
     func setViewHierarchy(){
-        view.addSubview(dimmedView)
-        view.addSubview(bottomSheetView)
-        bottomSheetView.addSubviews(nickNameLabel,nickNameTextField,settingButton)
+        view.addSubviews(dimmedView,bottomSheetView)
+        bottomSheetView.addSubview(nicknameSettingView)
+        //bottomSheetView.addSubviews(nickNameLabel,nickNameTextField,settingButton)
     }
     
     func setLayout(){
@@ -134,25 +122,15 @@ private extension BottomSheetViewController {
         }
         
         bottomSheetView.snp.makeConstraints{
-            $0.height.equalTo(0)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(defaultHeight)
+            $0.top.equalTo(view.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
         }
         
-        nickNameLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(50)
-            $0.leading.trailing.equalToSuperview().inset(20)
+        nicknameSettingView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
         }
         
-        nickNameTextField.snp.makeConstraints{
-            $0.top.equalTo(nickNameLabel.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(52)
-        }
-        settingButton.snp.makeConstraints{
-            $0.bottom.equalToSuperview().inset(20)
-            $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(52)
-        }
         
     }
 }

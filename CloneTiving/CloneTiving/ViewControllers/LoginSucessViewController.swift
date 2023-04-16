@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class LoginSucessViewController: UIViewController {
+final class LoginSucessViewController: UIViewController {
 
     private var emailtext: String = ""
     

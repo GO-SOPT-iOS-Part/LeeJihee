@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 
-class SignInViewController: UIViewController, UISheetPresentationControllerDelegate {
+final class SignInViewController: UIViewController, UISheetPresentationControllerDelegate {
     
     //MARK: UIComponents
     
@@ -98,8 +98,8 @@ class SignInViewController: UIViewController, UISheetPresentationControllerDeleg
     @objc func loginButtonDidTap(){
         let nextVC = LoginSucessViewController()
         guard let text = idTextField.text else { return }
-        
-        nickNameText.isEmpty ? nextVC.dataBind(text) : nextVC.dataBind(nickNameText)
+        let nextVCText = nickNameText.isEmpty ? text : nickNameText
+        nextVC.dataBind(nextVCText)
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -183,38 +183,28 @@ extension SignInViewController: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.makeBorder(width: 0.7, color: .tvingGray1)
-        if idTextField.text!.contains("@")  && passwordTextField.text!.count >= 10 {
-            self.loginButton.isEnabled = true
-            checkIsEnableButton()
-        } else {
-            self.loginButton.isEnabled = false
-            checkIsEnableButton()
-        }
+        
+        guard let idText = idTextField.text else { return }
+        guard let pwText = passwordTextField.text else { return }
+        
+        var isEnableButton = (idText.contains("@")  && pwText.count >= 10) ? true : false
+        
+        checkIsEnableButton(isEnable: isEnableButton)
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if idTextField.text!.contains("@")  && passwordTextField.text!.count >= 10 {
-            self.loginButton.isEnabled = true
-            checkIsEnableButton()
-        } else {
-            self.loginButton.isEnabled = false
-            checkIsEnableButton()
-        }
-        return true
-    }
+
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if idTextField.text!.contains("@")  && passwordTextField.text!.count >= 10 {
-            self.loginButton.isEnabled = true
-            checkIsEnableButton()
-        } else {
-            self.loginButton.isEnabled = false
-            checkIsEnableButton()
-        }
+        guard let idText = idTextField.text else { return }
+        guard let pwText = passwordTextField.text else { return }
+        
+        var isEnableButton = (idText.contains("@")  && pwText.count >= 10) ? true : false
+        
+        checkIsEnableButton(isEnable: isEnableButton)
         textField.layer.borderWidth = 0
     }
     
-    func checkIsEnableButton(){
-        if loginButton.isEnabled {
+    func checkIsEnableButton(isEnable: Bool){
+        if isEnable {
             self.loginButton.backgroundColor = .tvingRed
             self.loginButton.setTitleColor(.white, for: .normal)
         } else{
