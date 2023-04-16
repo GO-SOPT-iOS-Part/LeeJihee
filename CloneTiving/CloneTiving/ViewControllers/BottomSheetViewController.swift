@@ -8,15 +8,15 @@
 import UIKit
 import SnapKit
 
-protocol DataBindProtocol: AnyObject {
-    func dataBind(text: String)
+protocol LoginNameDataBindProtocol: AnyObject {
+    func nicknameDataBind(text: String)
 }
 
 
 final class BottomSheetViewController: UIViewController {
     
     var defaultHeight: CGFloat = Constant.height.isHalf
-    weak var delegate: DataBindProtocol?
+    weak var delegate: LoginNameDataBindProtocol?
     
     //MARK: UIComponent
     private let dimmedView: UIView = {
@@ -79,7 +79,7 @@ final class BottomSheetViewController: UIViewController {
         }
         
         if let text = nicknameSettingView.nickNameTextField.text {
-            delegate?.dataBind(text: text)
+            delegate?.nicknameDataBind(text: text)
         }
     }
     

@@ -177,34 +177,35 @@ private extension SignInViewController {
 }
 
 extension SignInViewController: UITextFieldDelegate{
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        checkIsEnableButton()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.makeBorder(width: 0.7, color: .tvingGray1)
-        
-        guard let idText = idTextField.text else { return }
-        guard let pwText = passwordTextField.text else { return }
-        
-        var isEnableButton = (idText.contains("@")  && pwText.count >= 10) ? true : false
-        
-        checkIsEnableButton(isEnable: isEnableButton)
+        checkIsEnableButton()
     }
 
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let idText = idTextField.text else { return }
-        guard let pwText = passwordTextField.text else { return }
-        
-        var isEnableButton = (idText.contains("@")  && pwText.count >= 10) ? true : false
-        
-        checkIsEnableButton(isEnable: isEnableButton)
+        checkIsEnableButton()
         textField.layer.borderWidth = 0
     }
     
-    func checkIsEnableButton(isEnable: Bool){
-        if isEnable {
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        checkIsEnableButton()
+        return true
+    }
+    
+    func checkIsEnableButton(){
+        guard let idText = idTextField.text else { return }
+        guard let pwText = passwordTextField.text else { return }
+        
+        let isEnableButton = (idText.contains("@")  && pwText.count >= 10) ? true : false
+        
+        if isEnableButton {
             self.loginButton.backgroundColor = .tvingRed
             self.loginButton.setTitleColor(.white, for: .normal)
         } else{
@@ -212,10 +213,11 @@ extension SignInViewController: UITextFieldDelegate{
             self.loginButton.setTitleColor(.tvingGray2, for: .normal)
         }
     }
-}
-extension SignInViewController: DataBindProtocol {
     
-    func dataBind(text: String) {
+}
+extension SignInViewController: LoginNameDataBindProtocol {
+    
+    func nicknameDataBind(text: String) {
         nickNameText = text
     }
 }
