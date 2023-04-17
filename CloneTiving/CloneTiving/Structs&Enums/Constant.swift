@@ -8,6 +8,12 @@
 import UIKit
 
 struct Constant {
-    static var widith = UIScreen.main.bounds.width
-    static var height = UIScreen.main.bounds.height
+    struct Screen {
+            static let width = UIScreen.main.bounds.width
+            static let height = UIScreen.main.bounds.height
+        }
+        
+        struct ButtonSize {
+            static let height = 52
+        }
 }
