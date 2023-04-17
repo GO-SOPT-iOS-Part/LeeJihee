@@ -86,6 +86,7 @@ final class SignInViewController: UIViewController, UISheetPresentationControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTarget()
         setUI()
     }
     
@@ -93,6 +94,11 @@ final class SignInViewController: UIViewController, UISheetPresentationControlle
         super.viewWillAppear(animated)
         idTextField.text = ""
         passwordTextField.text = ""
+    }
+    
+    private func addTarget(){
+        idTextField.addTarget(self, action: #selector(didTextFiledChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(didTextFiledChanged), for: .editingChanged)
     }
     
     @objc func loginButtonDidTap(){
@@ -116,6 +122,12 @@ final class SignInViewController: UIViewController, UISheetPresentationControlle
         //            sheet.delegate = self
         //            sheet.prefersGrabberVisible = true
         //        }
+    }
+    
+    @objc func didTextFiledChanged(){
+        guard let idText = idTextField.text else { return }
+        guard let pwText = passwordTextField.text else { return }
+        updateActivaButton(isEnable: checkEmailAndPassword(idText, pwText))
     }
     
     
@@ -179,33 +191,32 @@ private extension SignInViewController {
 extension SignInViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        checkIsEnableButton()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.makeBorder(width: 0.7, color: .tvingGray1)
-        checkIsEnableButton()
     }
-
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        checkIsEnableButton()
+        guard let idText = idTextField.text else { return }
+        guard let pwText = passwordTextField.text else { return }
+        updateActivaButton(isEnable: checkEmailAndPassword(idText, pwText))
         textField.layer.borderWidth = 0
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        checkIsEnableButton()
+        
         return true
     }
     
-    func checkIsEnableButton(){
-        guard let idText = idTextField.text else { return }
-        guard let pwText = passwordTextField.text else { return }
-        
-        let isEnableButton = (idText.contains("@")  && pwText.count >= 10) ? true : false
-        
-        if isEnableButton {
+    func checkEmailAndPassword(_ email: String, _ password: String) -> Bool {
+        return  email.contains("@") && password.count>=10
+    }
+    
+    func updateActivaButton(isEnable: Bool){
+        if isEnable {
             self.loginButton.backgroundColor = .tvingRed
             self.loginButton.setTitleColor(.white, for: .normal)
         } else{

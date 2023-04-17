@@ -15,7 +15,7 @@ protocol LoginNameDataBindProtocol: AnyObject {
 
 final class BottomSheetViewController: UIViewController {
     
-    var defaultHeight: CGFloat = Constant.height.isHalf
+    var defaultHeight: CGFloat = Constant.Screen.height.isHalf
     weak var delegate: LoginNameDataBindProtocol?
     
     //MARK: UIComponent
