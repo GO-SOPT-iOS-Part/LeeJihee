@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36110C0D29E1483C000ED129 /* DelegateFristViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C0C29E1483C000ED129 /* DelegateFristViewControllerViewController.swift */; };
+		36110C0F29E1484F000ED129 /* DelegateSecondViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C0E29E1484F000ED129 /* DelegateSecondViewControllerViewController.swift */; };
+		36110C1129E149B7000ED129 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1029E149B7000ED129 /* Test1ViewController.swift */; };
+		36110C1329E154B5000ED129 /* Test2_FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */; };
+		36110C1529E1571F000ED129 /* Test2_SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */; };
+<<<<<<< Updated upstream
+		36110C1829E29360000ED129 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1729E29360000ED129 /* Images.swift */; };
+		36110C1B29E299C9000ED129 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1A29E299C9000ED129 /* Color.swift */; };
+		36110C1E29E29BA5000ED129 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1D29E29BA5000ED129 /* CustomButton.swift */; };
+=======
+		3622DB8B29F2537E00452C33 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622DB8A29F2537E00452C33 /* TestViewController.swift */; };
+>>>>>>> Stashed changes
 		3637A48729D806BC00289A15 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637A48629D806BC00289A15 /* FirstViewController.swift */; };
 		3637A48929D80F6000289A15 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637A48829D80F6000289A15 /* SecondViewController.swift */; };
 		367315E729D7D79400531D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367315E629D7D79400531D41 /* AppDelegate.swift */; };
@@ -17,9 +29,22 @@
 		369B6DEC29DF15C900391F13 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369B6DEB29DF15C900391F13 /* UIView+.swift */; };
 		369B6E4B29E1410800391F13 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 369B6E4A29E1410800391F13 /* SnapKit */; };
 		369B6E4E29E143EB00391F13 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 369B6E4D29E143EB00391F13 /* Then */; };
+		36D3CC6D29E8CD5C00B62D9B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3CC6C29E8CD5C00B62D9B /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36110C0C29E1483C000ED129 /* DelegateFristViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateFristViewControllerViewController.swift; sourceTree = "<group>"; };
+		36110C0E29E1484F000ED129 /* DelegateSecondViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSecondViewControllerViewController.swift; sourceTree = "<group>"; };
+		36110C1029E149B7000ED129 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
+		36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2_FirstViewController.swift; sourceTree = "<group>"; };
+		36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2_SecondViewController.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+		36110C1729E29360000ED129 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		36110C1A29E299C9000ED129 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		36110C1D29E29BA5000ED129 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+=======
+		3622DB8A29F2537E00452C33 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		3637A48629D806BC00289A15 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3637A48829D80F6000289A15 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		367315E329D7D79400531D41 /* SOPT_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +55,7 @@
 		367315F229D7D79600531D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		367315F429D7D79600531D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		369B6DEB29DF15C900391F13 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		36D3CC6C29E8CD5C00B62D9B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +71,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36110C0B29E14816000ED129 /* 2nd_Seminar */ = {
+			isa = PBXGroup;
+			children = (
+				36110C0C29E1483C000ED129 /* DelegateFristViewControllerViewController.swift */,
+				36110C0E29E1484F000ED129 /* DelegateSecondViewControllerViewController.swift */,
+				36110C1029E149B7000ED129 /* Test1ViewController.swift */,
+				36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */,
+				36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */,
+				3622DB8A29F2537E00452C33 /* TestViewController.swift */,
+			);
+			path = 2nd_Seminar;
+			sourceTree = "<group>";
+		};
+		36110C1629E29346000ED129 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				36110C1729E29360000ED129 /* Images.swift */,
+				36110C1A29E299C9000ED129 /* Color.swift */,
+				36D3CC6C29E8CD5C00B62D9B /* Constant.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		36110C1C29E29B7F000ED129 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				36110C1D29E29BA5000ED129 /* CustomButton.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		367315DA29D7D79400531D41 = {
 			isa = PBXGroup;
 			children = (
@@ -67,11 +124,14 @@
 				367315E629D7D79400531D41 /* AppDelegate.swift */,
 				367315E829D7D79400531D41 /* SceneDelegate.swift */,
 				367315EA29D7D79400531D41 /* ViewController.swift */,
+				36110C1629E29346000ED129 /* Structs */,
 				369B6DEA29DF150C00391F13 /* Extension */,
 				367315EF29D7D79600531D41 /* Assets.xcassets */,
 				367315F129D7D79600531D41 /* LaunchScreen.storyboard */,
 				367315F429D7D79600531D41 /* Info.plist */,
+				36110C1C29E29B7F000ED129 /* CustomView */,
 				369B6E4329E132C400391F13 /* 1st_Seminar */,
+				36110C0B29E14816000ED129 /* 2nd_Seminar */,
 			);
 			path = SOPT_iOS;
 			sourceTree = "<group>";
@@ -179,12 +239,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36110C1129E149B7000ED129 /* Test1ViewController.swift in Sources */,
+				36110C1829E29360000ED129 /* Images.swift in Sources */,
+				36D3CC6D29E8CD5C00B62D9B /* Constant.swift in Sources */,
+				36110C0F29E1484F000ED129 /* DelegateSecondViewControllerViewController.swift in Sources */,
 				369B6DEC29DF15C900391F13 /* UIView+.swift in Sources */,
+				36110C1E29E29BA5000ED129 /* CustomButton.swift in Sources */,
+				36110C1B29E299C9000ED129 /* Color.swift in Sources */,
+				36110C0D29E1483C000ED129 /* DelegateFristViewControllerViewController.swift in Sources */,
 				367315EB29D7D79400531D41 /* ViewController.swift in Sources */,
 				367315E729D7D79400531D41 /* AppDelegate.swift in Sources */,
+				36110C1329E154B5000ED129 /* Test2_FirstViewController.swift in Sources */,
 				367315E929D7D79400531D41 /* SceneDelegate.swift in Sources */,
 				3637A48929D80F6000289A15 /* SecondViewController.swift in Sources */,
 				3637A48729D806BC00289A15 /* FirstViewController.swift in Sources */,
+				3622DB8B29F2537E00452C33 /* TestViewController.swift in Sources */,
+				36110C1529E1571F000ED129 /* Test2_SecondViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
