@@ -13,45 +13,42 @@ protocol CountProtocol: AnyObject {
 }
 
 final class Test2_SecondViewController: UIViewController {
-    
+ 
+    //MARK: delegate
     weak var delegate: CountProtocol?
     
-//    var count = 0
+    
+    //MARK: UIComponents
+    private let waterCanImageView = UIImageView().then{
+        $0.image = Images.wateringCanImage
+    }
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "횟수는!?"
+        label.text = "물을 얼마나 줄까요?"
         label.font = .systemFont(ofSize: 16)
-        label.textColor = .blue
+        label.textColor = Colors.titleColor
         label.textAlignment = .center
         return label
     }()
     
-    private lazy var touchButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("눌러줘!", for: .normal)
-        button.backgroundColor = .yellow
-        button.setTitleColor(.blue, for: .normal)
-        button.addTarget(self,
-                         action: #selector(countTapButton),
-                         for: .touchUpInside)
-        return button
-    }()
+    private lazy var touchButton =  CustomButton("눌러줘!").then{
+        $0.addTarget(self,
+                     action: #selector(pushButtonDidTap),
+                     for: .touchUpInside)
+    }
     
-    private lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("이전으로", for: .normal)
-        button.backgroundColor = .yellow
-        button.setTitleColor(.blue, for: .normal)
-        button.addTarget(self,
-                         action: #selector(popSecondViewController),
+    private lazy var backButton = CustomButton("이전으로~").then{
+        $0.addTarget(self,
+                         action: #selector(backButtonDidTap),
                          for: .touchUpInside)
-        return button
-    }()
+    }
     
     typealias handler = ((String) -> (Void))
     
     var completionHandler: handler?
+    
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +57,8 @@ final class Test2_SecondViewController: UIViewController {
         setLayout()
     }
 }
+
+//MARK: Custom Method
 
 extension Test2_SecondViewController {
     
@@ -70,9 +69,12 @@ extension Test2_SecondViewController {
     
     func setLayout() {
         
-        [titleLabel,touchButton, backButton].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview($0)
+        view.addSubviews(waterCanImageView,titleLabel,touchButton,backButton)
+        
+        waterCanImageView.snp.makeConstraints{
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(titleLabel.snp.top).offset(-20)
+            $0.size.equalTo(Constant.widith / 4)
         }
         
         titleLabel.snp.makeConstraints{
@@ -81,25 +83,25 @@ extension Test2_SecondViewController {
         
         touchButton.snp.makeConstraints{
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
-            $0.width.equalTo(backButton.snp.width)
+            $0.width.equalTo(150)
             $0.centerX.equalToSuperview()
         }
         backButton.snp.makeConstraints{
             $0.top.equalTo(touchButton.snp.bottom).offset(10)
+            $0.width.equalTo(touchButton.snp.width)
             $0.centerX.equalToSuperview()
         }
         
     }
     
-    @objc func countTapButton() {
-        print("gggg")
+    //MARK: Action
+    
+    @objc func pushButtonDidTap() {
         delegate?.countUp()
     }
     
     @objc
-    func popSecondViewController() {
-        
-        
-        self.navigationController?.popViewController(animated: true)
+    func backButtonDidTap() {
+        self.dismiss(animated: true)
     }
 }

@@ -13,28 +13,27 @@ final class Test2_FirstViewController: UIViewController {
     
     var count = 0
     
+    //MARK: UIcomponents
+    
+    private let plantImageView = UIImageView().then{
+        $0.image = Images.sproutImage
+    }
+    
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30)
-        label.textColor = .white
-        label.text = "gggggg"
-        label.backgroundColor = .black
-        label.makeCornerRound(radius: 15)
+        label.text = "화분에 물주기"
+        label.font = .systemFont(ofSize: 24)
         label.textAlignment = .center
         return label
     }()
     
-    private lazy var nextButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("다음으로!", for: .normal)
-        button.backgroundColor = .blue
-        button.setTitleColor(.white, for: .normal)
-        button.makeCornerRound(radius: 10)
-        button.addTarget(self,
-                         action: #selector(pushToSecondViewController),
-                         for: .touchUpInside)
-        return button
-    }()
+    private lazy var nextButton = CustomButton("다음으로!", radius: 10).then{
+        $0.addTarget(self,
+                      action: #selector(nextButtonDidTap),
+                      for: .touchUpInside)
+    }
+    
+    //MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +43,7 @@ final class Test2_FirstViewController: UIViewController {
     }
 }
 
+//MARK: Custom Method
 private extension Test2_FirstViewController {
     
     func style() {
@@ -54,9 +54,15 @@ private extension Test2_FirstViewController {
     
     func setLayout() {
         
-        [nameLabel, nextButton].forEach {
+        [plantImageView, nameLabel, nextButton].forEach {
             
             view.addSubview($0)
+        }
+        
+        plantImageView.snp.makeConstraints{
+            $0.size.equalTo(Constant.widith / 4)
+            $0.bottom.equalTo(nameLabel.snp.top).offset(-20)
+            $0.centerX.equalToSuperview()
         }
 
         nameLabel.snp.makeConstraints{
@@ -65,28 +71,30 @@ private extension Test2_FirstViewController {
         }
         nextButton.snp.makeConstraints{
             $0.top.equalTo(nameLabel.snp.bottom).offset(10)
-            $0.leading.trailing.equalToSuperview().inset(50)
+            $0.leading.trailing.equalToSuperview().inset(150)
         }
     }
     
     @objc
-    func pushToSecondViewController() {
-        
+    func nextButtonDidTap() {
+        count = 0
         let secondViewController = Test2_SecondViewController()
         secondViewController.delegate = self
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+        self.present(secondViewController, animated: true)
     }
 }
 
 extension Test2_FirstViewController: CountProtocol {
+    
     func countUp() {
         count += 1
-        print(count)
-        if count<10 {
-            nameLabel.text = "더 눌러봐.. \(count)"
-        } else {
-            nameLabel.text = "충분히 눌렀네요! \(count)"
-        }
+        count < 10 ? setCountUI(Images.deadImage, "더 눌러봐..", Colors.deadGreen) : setCountUI(Images.plantImage, "충분히 눌렀네요!", Colors.oliveGreen)
+    }
+    
+    func setCountUI(_ image: UIImage,_ text: String, _ color: UIColor){
+        plantImageView.image = image
+        nameLabel.text = text + String(count)
+        nameLabel.textColor = color
     }
     
     
