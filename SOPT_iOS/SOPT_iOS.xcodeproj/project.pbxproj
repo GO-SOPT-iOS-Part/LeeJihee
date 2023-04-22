@@ -12,9 +12,13 @@
 		36110C1129E149B7000ED129 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1029E149B7000ED129 /* Test1ViewController.swift */; };
 		36110C1329E154B5000ED129 /* Test2_FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */; };
 		36110C1529E1571F000ED129 /* Test2_SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */; };
+<<<<<<< Updated upstream
 		36110C1829E29360000ED129 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1729E29360000ED129 /* Images.swift */; };
 		36110C1B29E299C9000ED129 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1A29E299C9000ED129 /* Color.swift */; };
 		36110C1E29E29BA5000ED129 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C1D29E29BA5000ED129 /* CustomButton.swift */; };
+=======
+		3622DB8B29F2537E00452C33 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622DB8A29F2537E00452C33 /* TestViewController.swift */; };
+>>>>>>> Stashed changes
 		3637A48729D806BC00289A15 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637A48629D806BC00289A15 /* FirstViewController.swift */; };
 		3637A48929D80F6000289A15 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637A48829D80F6000289A15 /* SecondViewController.swift */; };
 		367315E729D7D79400531D41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367315E629D7D79400531D41 /* AppDelegate.swift */; };
@@ -34,9 +38,13 @@
 		36110C1029E149B7000ED129 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
 		36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2_FirstViewController.swift; sourceTree = "<group>"; };
 		36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2_SecondViewController.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		36110C1729E29360000ED129 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		36110C1A29E299C9000ED129 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		36110C1D29E29BA5000ED129 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+=======
+		3622DB8A29F2537E00452C33 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		3637A48629D806BC00289A15 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3637A48829D80F6000289A15 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		367315E329D7D79400531D41 /* SOPT_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +79,7 @@
 				36110C1029E149B7000ED129 /* Test1ViewController.swift */,
 				36110C1229E154B5000ED129 /* Test2_FirstViewController.swift */,
 				36110C1429E1571F000ED129 /* Test2_SecondViewController.swift */,
+				3622DB8A29F2537E00452C33 /* TestViewController.swift */,
 			);
 			path = 2nd_Seminar;
 			sourceTree = "<group>";
@@ -244,6 +253,7 @@
 				367315E929D7D79400531D41 /* SceneDelegate.swift in Sources */,
 				3637A48929D80F6000289A15 /* SecondViewController.swift in Sources */,
 				3637A48729D806BC00289A15 /* FirstViewController.swift in Sources */,
+				3622DB8B29F2537E00452C33 /* TestViewController.swift in Sources */,
 				36110C1529E1571F000ED129 /* Test2_SecondViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
