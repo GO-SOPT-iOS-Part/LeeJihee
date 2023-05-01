@@ -35,5 +35,9 @@ extension UIColor {
     class var tvingGray4: UIColor {
         return UIColor(r: 46, g: 46, b: 46)
     }
-    //위와 같은형식으로 원하는 색상 추가 가능
+    
+    class var tvingGray5: UIColor {
+        return UIColor(r: 25, g: 25, b: 25)
+    }
+
 }
