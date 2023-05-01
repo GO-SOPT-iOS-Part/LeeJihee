@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.79 39.79">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #595a5a;
+        font-family: Pretendard-Medium-KSCpc-EUC-H, Pretendard;
+        font-size: 21.29px;
+        font-weight: 500;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #595a5a;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <g id="_레이어_1-2" data-name="레이어 1">
+    <circle class="cls-2" cx="19.9" cy="19.9" r="19.4"/>
+    <text class="cls-1" transform="translate(12.41 26.84)"><tspan x="0" y="0">C</tspan></text>
+  </g>
+</svg>

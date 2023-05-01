@@ -26,6 +26,11 @@
 		36110C7429E8026C000ED129 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36110C7129E8026B000ED129 /* Pretendard-Bold.otf */; };
 		36110C7529E8026C000ED129 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36110C7229E8026C000ED129 /* Pretendard-SemiBold.otf */; };
 		36110C7829E803BE000ED129 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C7729E803BE000ED129 /* CustomTextField.swift */; };
+		361FB16229FFACDC00F54E43 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16129FFACDC00F54E43 /* SettingViewController.swift */; };
+		361FB16429FFADA600F54E43 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16329FFADA600F54E43 /* BaseViewController.swift */; };
+		361FB16629FFADD200F54E43 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16529FFADD200F54E43 /* BaseView.swift */; };
+		361FB16829FFAE5400F54E43 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16729FFAE5400F54E43 /* SettingView.swift */; };
+		361FB16B29FFB13C00F54E43 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16A29FFB13C00F54E43 /* UILabel+.swift */; };
 		3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */; };
 		3663C98A29EB470300E64A0A /* NickNameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98929EB470300E64A0A /* NickNameSettingView.swift */; };
 		3663C98C29EC561E00E64A0A /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98B29EC561E00E64A0A /* CGFloat+.swift */; };
@@ -52,6 +57,11 @@
 		36110C7129E8026B000ED129 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		36110C7229E8026C000ED129 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		36110C7729E803BE000ED129 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		361FB16129FFACDC00F54E43 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		361FB16329FFADA600F54E43 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		361FB16529FFADD200F54E43 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		361FB16729FFAE5400F54E43 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		361FB16A29FFB13C00F54E43 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		3663C98929EB470300E64A0A /* NickNameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameSettingView.swift; sourceTree = "<group>"; };
 		3663C98B29EC561E00E64A0A /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
@@ -90,6 +100,7 @@
 		36110C3129E46285000ED129 /* CloneTiving */ = {
 			isa = PBXGroup;
 			children = (
+				361FB16929FFB10F00F54E43 /* Base */,
 				36110C6F29E80238000ED129 /* Font */,
 				36110C3229E46285000ED129 /* AppDelegate.swift */,
 				36110C3429E46285000ED129 /* SceneDelegate.swift */,
@@ -111,6 +122,7 @@
 				36110C5929E46F8C000ED129 /* UIStackView+.swift */,
 				36110C5529E467AA000ED129 /* UIButton+.swift */,
 				36110C5129E46619000ED129 /* UIColor+.swift */,
+				361FB16A29FFB13C00F54E43 /* UILabel+.swift */,
 				36110C5329E4675F000ED129 /* UIFont+.swift */,
 				36110C5729E467C3000ED129 /* UITextField+.swift */,
 				3663C98B29EC561E00E64A0A /* CGFloat+.swift */,
@@ -124,6 +136,7 @@
 				36110C3629E46285000ED129 /* SignInViewController.swift */,
 				36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */,
 				3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */,
+				361FB16129FFACDC00F54E43 /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,8 +165,18 @@
 			children = (
 				36110C7729E803BE000ED129 /* CustomTextField.swift */,
 				3663C98929EB470300E64A0A /* NickNameSettingView.swift */,
+				361FB16729FFAE5400F54E43 /* SettingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		361FB16929FFB10F00F54E43 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				361FB16329FFADA600F54E43 /* BaseViewController.swift */,
+				361FB16529FFADD200F54E43 /* BaseView.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,10 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				36110C5029E4660E000ED129 /* UIView+.swift in Sources */,
+				361FB16829FFAE5400F54E43 /* SettingView.swift in Sources */,
 				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
 				3663C98E29EC567000E64A0A /* Constant.swift in Sources */,
 				36110C5F29E49DAA000ED129 /* Images.swift in Sources */,
+				361FB16429FFADA600F54E43 /* BaseViewController.swift in Sources */,
+				361FB16229FFACDC00F54E43 /* SettingViewController.swift in Sources */,
 				3663C98C29EC561E00E64A0A /* CGFloat+.swift in Sources */,
 				36110C3729E46285000ED129 /* SignInViewController.swift in Sources */,
 				36110C3329E46285000ED129 /* AppDelegate.swift in Sources */,
@@ -250,7 +276,9 @@
 				36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */,
 				3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */,
 				36110C7829E803BE000ED129 /* CustomTextField.swift in Sources */,
+				361FB16B29FFB13C00F54E43 /* UILabel+.swift in Sources */,
 				36110C5429E4675F000ED129 /* UIFont+.swift in Sources */,
+				361FB16629FFADD200F54E43 /* BaseView.swift in Sources */,
 				36110C5229E46619000ED129 /* UIColor+.swift in Sources */,
 				36110C5829E467C3000ED129 /* UITextField+.swift in Sources */,
 			);
