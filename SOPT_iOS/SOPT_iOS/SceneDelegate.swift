@@ -16,7 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
             
             guard let windowScene = (scene as? UIWindowScene) else { return }
+<<<<<<< Updated upstream
             let navigationController = UINavigationController(rootViewController: TestViewController())
+=======
+            let navigationController = UINavigationController(rootViewController: CarrotViewController())
+>>>>>>> Stashed changes
             self.window = UIWindow(windowScene: windowScene)
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()

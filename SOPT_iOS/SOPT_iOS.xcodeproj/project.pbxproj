@@ -101,6 +101,66 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+<<<<<<< Updated upstream
+=======
+		3651571229F3AA8F00598391 /* 3rd_Seminar */ = {
+			isa = PBXGroup;
+			children = (
+				3651572B29F3BF0F00598391 /* Photos */,
+				3651572429F3B51400598391 /* Carrot */,
+				3651571629F3AB4C00598391 /* Viewcontrollers */,
+				3651571329F3AAEB00598391 /* Views */,
+			);
+			path = 3rd_Seminar;
+			sourceTree = "<group>";
+		};
+		3651571329F3AAEB00598391 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3651571429F3AAFA00598391 /* CommonView.swift */,
+				3651571B29F3AC0400598391 /* BaseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3651571629F3AB4C00598391 /* Viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				3651571729F3AB5E00598391 /* Week3Viewcontroller.swift */,
+				3651571929F3ABEE00598391 /* BaseViewController.swift */,
+			);
+			path = Viewcontrollers;
+			sourceTree = "<group>";
+		};
+		3651572129F3B18D00598391 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				3651572229F3B1A100598391 /* Carrot.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
+		3651572429F3B51400598391 /* Carrot */ = {
+			isa = PBXGroup;
+			children = (
+				3651572129F3B18D00598391 /* Struct */,
+				3651571F29F3B10600598391 /* CarrotViewController.swift */,
+				3651572529F3B59800598391 /* CarrotTableViewCell.swift */,
+			);
+			path = Carrot;
+			sourceTree = "<group>";
+		};
+		3651572B29F3BF0F00598391 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				3651572E29F3BFCC00598391 /* Photos.swift */,
+				3651572C29F3BF1E00598391 /* PhotoViewController.swift */,
+				3651573229F3C0C800598391 /* PhotoCell.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+>>>>>>> Stashed changes
 		367315DA29D7D79400531D41 = {
 			isa = PBXGroup;
 			children = (
