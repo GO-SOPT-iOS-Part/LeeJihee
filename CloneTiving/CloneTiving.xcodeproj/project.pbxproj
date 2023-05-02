@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360EA0A12A0019950014D9F1 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360EA0A02A0019950014D9F1 /* SettingTableViewCell.swift */; };
+		360EA0A32A002D180014D9F1 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360EA0A22A002D180014D9F1 /* BaseScrollView.swift */; };
+		360EA0A92A0051360014D9F1 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360EA0A82A0051360014D9F1 /* SettingHeaderView.swift */; };
 		36110C3329E46285000ED129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C3229E46285000ED129 /* AppDelegate.swift */; };
 		36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C3429E46285000ED129 /* SceneDelegate.swift */; };
 		36110C3729E46285000ED129 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36110C3629E46285000ED129 /* SignInViewController.swift */; };
@@ -29,8 +32,9 @@
 		361FB16229FFACDC00F54E43 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16129FFACDC00F54E43 /* SettingViewController.swift */; };
 		361FB16429FFADA600F54E43 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16329FFADA600F54E43 /* BaseViewController.swift */; };
 		361FB16629FFADD200F54E43 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16529FFADD200F54E43 /* BaseView.swift */; };
-		361FB16829FFAE5400F54E43 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16729FFAE5400F54E43 /* SettingView.swift */; };
+		361FB16829FFAE5400F54E43 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16729FFAE5400F54E43 /* SettingTableView.swift */; };
 		361FB16B29FFB13C00F54E43 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16A29FFB13C00F54E43 /* UILabel+.swift */; };
+		361FB16D29FFF53300F54E43 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16C29FFF53300F54E43 /* UIImage+.swift */; };
 		3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */; };
 		3663C98A29EB470300E64A0A /* NickNameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98929EB470300E64A0A /* NickNameSettingView.swift */; };
 		3663C98C29EC561E00E64A0A /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98B29EC561E00E64A0A /* CGFloat+.swift */; };
@@ -38,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		360EA0A02A0019950014D9F1 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		360EA0A22A002D180014D9F1 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
+		360EA0A82A0051360014D9F1 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		36110C2F29E46285000ED129 /* CloneTiving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloneTiving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36110C3229E46285000ED129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36110C3429E46285000ED129 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +67,9 @@
 		361FB16129FFACDC00F54E43 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		361FB16329FFADA600F54E43 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		361FB16529FFADD200F54E43 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		361FB16729FFAE5400F54E43 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		361FB16729FFAE5400F54E43 /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		361FB16A29FFB13C00F54E43 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		361FB16C29FFF53300F54E43 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		3663C98929EB470300E64A0A /* NickNameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameSettingView.swift; sourceTree = "<group>"; };
 		3663C98B29EC561E00E64A0A /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
@@ -81,6 +89,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		360EA0A42A0050E60014D9F1 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				36110C3629E46285000ED129 /* SignInViewController.swift */,
+				36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */,
+				3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		360EA0A62A0051060014D9F1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				361FB16729FFAE5400F54E43 /* SettingTableView.swift */,
+				360EA0A02A0019950014D9F1 /* SettingTableViewCell.swift */,
+				360EA0A82A0051360014D9F1 /* SettingHeaderView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		360EA0A72A00511B0014D9F1 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				361FB16129FFACDC00F54E43 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		36110C2629E46285000ED129 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +162,7 @@
 				36110C5329E4675F000ED129 /* UIFont+.swift */,
 				36110C5729E467C3000ED129 /* UITextField+.swift */,
 				3663C98B29EC561E00E64A0A /* CGFloat+.swift */,
+				361FB16C29FFF53300F54E43 /* UIImage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -133,10 +170,8 @@
 		36110C4E29E465EB000ED129 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				36110C3629E46285000ED129 /* SignInViewController.swift */,
-				36110C6029E4ADD6000ED129 /* LoginSucessViewController.swift */,
-				3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */,
-				361FB16129FFACDC00F54E43 /* SettingViewController.swift */,
+				360EA0A42A0050E60014D9F1 /* SignIn */,
+				360EA0A72A00511B0014D9F1 /* Setting */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,9 +198,9 @@
 		36110C7629E803A4000ED129 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				360EA0A62A0051060014D9F1 /* Setting */,
 				36110C7729E803BE000ED129 /* CustomTextField.swift */,
 				3663C98929EB470300E64A0A /* NickNameSettingView.swift */,
-				361FB16729FFAE5400F54E43 /* SettingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +210,7 @@
 			children = (
 				361FB16329FFADA600F54E43 /* BaseViewController.swift */,
 				361FB16529FFADD200F54E43 /* BaseView.swift */,
+				360EA0A22A002D180014D9F1 /* BaseScrollView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -261,7 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36110C5029E4660E000ED129 /* UIView+.swift in Sources */,
-				361FB16829FFAE5400F54E43 /* SettingView.swift in Sources */,
+				361FB16829FFAE5400F54E43 /* SettingTableView.swift in Sources */,
 				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
 				3663C98E29EC567000E64A0A /* Constant.swift in Sources */,
@@ -272,13 +308,17 @@
 				36110C3729E46285000ED129 /* SignInViewController.swift in Sources */,
 				36110C3329E46285000ED129 /* AppDelegate.swift in Sources */,
 				3663C98A29EB470300E64A0A /* NickNameSettingView.swift in Sources */,
+				360EA0A32A002D180014D9F1 /* BaseScrollView.swift in Sources */,
 				36110C6129E4ADD6000ED129 /* LoginSucessViewController.swift in Sources */,
+				360EA0A12A0019950014D9F1 /* SettingTableViewCell.swift in Sources */,
 				36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */,
 				3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */,
 				36110C7829E803BE000ED129 /* CustomTextField.swift in Sources */,
 				361FB16B29FFB13C00F54E43 /* UILabel+.swift in Sources */,
 				36110C5429E4675F000ED129 /* UIFont+.swift in Sources */,
 				361FB16629FFADD200F54E43 /* BaseView.swift in Sources */,
+				361FB16D29FFF53300F54E43 /* UIImage+.swift in Sources */,
+				360EA0A92A0051360014D9F1 /* SettingHeaderView.swift in Sources */,
 				36110C5229E46619000ED129 /* UIColor+.swift in Sources */,
 				36110C5829E467C3000ED129 /* UITextField+.swift in Sources */,
 			);
