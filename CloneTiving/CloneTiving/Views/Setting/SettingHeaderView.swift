@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingHeaderView: BaseView {
+final class SettingHeaderView: BaseView {
     
     
     lazy var profileImageView: UIImageView = {
@@ -61,7 +61,7 @@ class SettingHeaderView: BaseView {
         let ticketString = NSAttributedString(string: " 티빙 캐시")
         let ticketAttachImg = NSAttributedString(attachment: coinAttachImg)
         label.labelWithImg(composition: ticketAttachImg,ticketString)
-        label.textAlignment = .center
+        
         label.font = .tvingRegular(ofSize: 13)
         label.textColor = .tvingGray3
         return label
@@ -160,12 +160,12 @@ class SettingHeaderView: BaseView {
        
        
        profileStackView.snp.makeConstraints{
-           $0.top.equalToSuperview().offset(100)
+           $0.top.equalToSuperview().offset(35)
            $0.leading.equalToSuperview().inset(24)
        }
        
        profileSwitchButton.snp.makeConstraints{
-           $0.top.equalToSuperview().offset(130)
+           $0.top.equalToSuperview().offset(65)
            $0.leading.equalTo(profileStackView.snp.trailing).offset(100)
            $0.trailing.equalToSuperview().inset(24)
        }

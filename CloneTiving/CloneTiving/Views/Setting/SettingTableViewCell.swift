@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SettingTableViewCell: UITableViewCell {
+final class SettingTableViewCell: UITableViewCell {
     static let identifier = "SettingCell"
     
     private let containerView: UIView = {

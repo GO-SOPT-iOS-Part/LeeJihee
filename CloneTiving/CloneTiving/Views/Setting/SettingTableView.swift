@@ -14,6 +14,8 @@ final class SettingTableView: BaseView {
     lazy var buttonStack : UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubviews(notificationButton,settingButton)
+        stackView.spacing = 10
+        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 5, right: 30)
         return stackView
     }()
     
@@ -28,6 +30,8 @@ final class SettingTableView: BaseView {
         button.setImage(Images.settingImage, for: .normal)
         return button
     }()
+    
+    lazy var barButtonStack = UIBarButtonItem(customView: buttonStack)
     
     let settingTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -57,6 +61,12 @@ final class SettingTableView: BaseView {
     }
     
     func setConstraints() {
+        [settingButton,notificationButton].forEach{
+            $0.snp.makeConstraints{
+                $0.size.equalTo(23)
+            }
+        }
+        
         
         settingTableView.snp.makeConstraints{
             $0.edges.equalToSuperview()

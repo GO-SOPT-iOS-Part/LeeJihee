@@ -28,10 +28,15 @@ class SettingViewController: BaseViewController {
     let settingTexts2: [String] = ["공지사항", "이벤트", "고객센터", "티빙 알아보기"]
     
     override func loadView() {
+        navigationController?.navigationBar.isHidden = false
         self.view = settingView
+        
     }
 
     override func setStyle() {
+        navigationController?.navigationBar.backgroundColor = .black
+        navigationItem.rightBarButtonItem = settingView.barButtonStack
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func setDelegate() {
@@ -48,12 +53,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return settingTexts.count
-        } else if section == 1{
-            return settingTexts2.count
-        }
-        return settingTexts.count
+        return section == 0 ? settingTexts.count : settingTexts2.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
