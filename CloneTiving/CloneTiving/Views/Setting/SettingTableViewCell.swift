@@ -26,25 +26,26 @@ final class SettingTableViewCell: UITableViewCell {
     
     let nextButton: UIButton = {
         let button = UIButton()
-        button.setImage(Images.nextImage, for: .normal)
+        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        button.tintColor = .tvingGray2
         return button
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.contentView.addSubview(self.containerView)
-        contentView.addSubview(settingLabel)
+        contentView.addSubviews(settingLabel,nextButton)
         self.backgroundColor = .black
         self.selectionStyle = .none
-        self.accessoryView = nextButton
         
-        self.contentView.snp.makeConstraints{
-            $0.edges.equalToSuperview()
-        }
-        self.settingLabel.snp.makeConstraints{
+        settingLabel.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
+        }
+        
+        nextButton.snp.makeConstraints{
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(20)
         }
         
     }

@@ -34,34 +34,36 @@ final class SettingHeaderView: BaseView {
         return button
     }()
     
-    let ticketAttachImg: NSTextAttachment = {
-        let textAttachment = NSTextAttachment()
-        textAttachment.image = Images.ticketImage
-        return textAttachment
+    let darkView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .tvingGray4
+        view.makeCornerRound(radius: 10)
+        return view
+    }()
+    
+    let ticketImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Images.ticketImage
+        return imageView
     }()
     
     lazy var ticketLabel: UILabel = {
         let label = UILabel()
-        let ticketImage = NSAttributedString(attachment: ticketAttachImg)
-        let ticketString = NSAttributedString(string: " 나의 이용권")
-        label.labelWithImg(composition: ticketImage,ticketString)
+        label.text = "나의 이용권"
         label.font = .tvingRegular(ofSize: 13)
         label.textColor = .tvingGray3
         return label
     }()
     
-    let coinAttachImg: NSTextAttachment = {
-        let textAttachment = NSTextAttachment()
-        textAttachment.image = Images.coinImage
-        return textAttachment
+    let coinImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Images.coinImage
+        return imageView
     }()
     
     lazy var tvingCashLabel: UILabel = {
         let label = UILabel()
-        let ticketString = NSAttributedString(string: " 티빙 캐시")
-        let ticketAttachImg = NSAttributedString(attachment: coinAttachImg)
-        label.labelWithImg(composition: ticketAttachImg,ticketString)
-        
+        label.text = "티빙 캐시"
         label.font = .tvingRegular(ofSize: 13)
         label.textColor = .tvingGray3
         return label
@@ -87,15 +89,21 @@ final class SettingHeaderView: BaseView {
     
     private lazy var ticketStackView : UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubviews(ticketLabel,ticketStateLabel)
-        stackView.spacing = 40
+        stackView.addArrangedSubviews(ticketImageView,ticketLabel,ticketStateLabel)
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.spacing = 8
         return stackView
     }()
     
     private lazy var tvingCashStackView : UIStackView = {
         let stackView = UIStackView()
-        stackView.addArrangedSubviews(tvingCashLabel,tvingCashStateLabel)
-        stackView.spacing = 170
+        stackView.addArrangedSubviews(coinImageView,tvingCashLabel,tvingCashStateLabel)
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -111,9 +119,8 @@ final class SettingHeaderView: BaseView {
         let stackView = UIStackView()
         stackView.addArrangedSubviews(ticketStackView, tvingCashStackView)
         stackView.axis = .vertical
+        stackView.distribution = .equalCentering
         stackView.alignment = .fill
-        stackView.backgroundColor = .tvingGray4
-        stackView.makeCornerRound(radius: 10)
         return stackView
     }()
     
@@ -144,48 +151,51 @@ final class SettingHeaderView: BaseView {
     }()
     
     func setViewHierarchy() {
-        self.addSubviews(profileStackView, profileSwitchButton, userinfoStackView, subscribeLabelView)
+        self.addSubviews(profileStackView, profileSwitchButton,darkView, subscribeLabelView)
+        darkView.addSubview(userinfoStackView)
         subscribeLabelView.addSubview(subscribeLabel)
         
     }
     
     func setConstraints() {
         
-       [ticketLabel, tvingCashLabel].forEach{
-           $0.snp.makeConstraints{
-               $0.width.equalTo(150)
-               $0.height.equalTo(45)
-           }
-       }
-       
-       
-       profileStackView.snp.makeConstraints{
-           $0.top.equalToSuperview().offset(35)
-           $0.leading.equalToSuperview().inset(24)
-       }
-       
-       profileSwitchButton.snp.makeConstraints{
-           $0.top.equalToSuperview().offset(65)
-           $0.leading.equalTo(profileStackView.snp.trailing).offset(100)
-           $0.trailing.equalToSuperview().inset(24)
-       }
-       
-       userinfoStackView.snp.makeConstraints{
-           $0.top.equalTo(profileStackView.snp.bottom).offset(29)
-           $0.height.equalTo(92)
-           $0.leading.trailing.equalTo(10)
-       }
-       
-       subscribeLabelView.snp.makeConstraints{
-           $0.top.equalTo(userinfoStackView.snp.bottom).offset(12)
-           $0.leading.trailing.equalTo(10)
-           $0.height.equalTo(60)
-       }
-       
-       subscribeLabel.snp.makeConstraints{
-           $0.leading.equalToSuperview().inset(18)
-           $0.top.bottom.equalToSuperview().inset(11)
-       }
+        profileStackView.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(35)
+            $0.leading.equalToSuperview().inset(24)
+        }
+        
+        profileSwitchButton.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(65)
+            $0.leading.equalTo(profileStackView.snp.trailing).offset(100)
+            $0.trailing.equalToSuperview().inset(24)
+        }
+        
+        [coinImageView, ticketImageView].forEach{
+            $0.snp.makeConstraints{
+                $0.size.equalTo(23)
+            }
+        }
+        
+        darkView.snp.makeConstraints{
+            $0.top.equalTo(profileStackView.snp.bottom).offset(29)
+            $0.height.equalTo(92)
+            $0.leading.trailing.equalToSuperview().inset(12)
+        }
+        
+        userinfoStackView.snp.makeConstraints{
+            $0.edges.equalToSuperview().inset(10)
+        }
+        
+        subscribeLabelView.snp.makeConstraints{
+            $0.top.equalTo(darkView.snp.bottom).offset(12)
+            $0.leading.trailing.equalTo(10)
+            $0.height.equalTo(60)
+        }
+        
+        subscribeLabel.snp.makeConstraints{
+            $0.leading.equalToSuperview().inset(18)
+            $0.top.bottom.equalToSuperview().inset(11)
+        }
     }
     
     

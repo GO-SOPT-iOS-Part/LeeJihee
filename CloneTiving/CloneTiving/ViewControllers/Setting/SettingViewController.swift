@@ -35,6 +35,7 @@ class SettingViewController: BaseViewController {
 
     override func setStyle() {
         navigationController?.navigationBar.backgroundColor = .black
+        navigationController?.navigationBar.barTintColor = .black
         navigationItem.rightBarButtonItem = settingView.barButtonStack
         tabBarController?.tabBar.isHidden = true
     }
@@ -82,7 +83,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             // Header 영역 크기
 
-            return section == 0 ? 370 : 0
+            return section == 0 ? 320 : 0
         }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
