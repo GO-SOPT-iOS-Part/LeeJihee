@@ -10,10 +10,13 @@ import SnapKit
 
 final class MainView: BaseView {
     
+    private let categoryTitleList = [ "홈", "실시간", "TV프로그램", "영화", "파라마운트+", "키즈" ]
+    
     let posterDummyData = Poster.dummy()
     let contentDummyData = Contents.dummy()
     let largePosterDummyData = LargePoster.dummy()
 
+    
     
     lazy var mainCollectionView : UICollectionView = {
         let flowLayout =  createLayout()
@@ -28,7 +31,13 @@ final class MainView: BaseView {
         return collectionView
     }()
     
+    private lazy var tabBarView = TabBarView(categoryTitleList: categoryTitleList)
     
+    let gradientView: UIView = {
+        let view = UIView()
+        view.setGradient(color1: .tvingGray2, color2: .clear)
+        return view
+    }()
     
     let gradientImageView: UIImageView = {
         let imageView = UIImageView()
@@ -60,10 +69,16 @@ final class MainView: BaseView {
     
     
     func setViewHierarchy() {
-        self.addSubviews(mainCollectionView,gradientImageView,tvingLogoButton, circleProfileButton)
+        self.addSubviews(mainCollectionView,gradientImageView,tvingLogoButton, circleProfileButton, tabBarView)
     }
     
     func setConstraints() {
+        
+        tabBarView.snp.makeConstraints{
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(tvingLogoButton.snp.bottom).offset(5)
+            $0.height.equalTo(45)
+        }
         
         mainCollectionView.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -72,6 +87,7 @@ final class MainView: BaseView {
         
         gradientImageView.snp.makeConstraints{
             $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(200)
         }
         
         tvingLogoButton.snp.makeConstraints{
@@ -107,7 +123,8 @@ final class MainView: BaseView {
         // 각 item의 사이즈 설정 ( width: 98, height: 146 )
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(98.0), heightDimension: .absolute(146.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
+        
+        
         // group설정
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200.0))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 4)
@@ -225,4 +242,5 @@ extension MainView: UICollectionViewDataSource {
     }
     
 }
+
 

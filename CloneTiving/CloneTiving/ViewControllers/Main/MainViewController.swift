@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: BaseViewController {
     
-    let menuTitles: [String] = ["홈","실시간","TV프로그램","영화","파라마운트","키즈"]
+
     
     //MARK: UI
     let mainView = MainView()
