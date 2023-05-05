@@ -10,19 +10,18 @@ import SnapKit
 
 final class MainView: BaseView {
     
-    private let categoryTitleList = [ "홈", "실시간", "TV프로그램", "영화", "파라마운트+", "키즈" ]
-    
     let posterDummyData = Poster.dummy()
     let contentDummyData = Contents.dummy()
     let largePosterDummyData = LargePoster.dummy()
-
-    
     
     lazy var mainCollectionView : UICollectionView = {
         let flowLayout =  createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        
         collectionView.isScrollEnabled = true
         collectionView.backgroundColor = .black
+        collectionView.contentInsetAdjustmentBehavior = .never
+        
         collectionView.register(LargePosterCollectionViewCell.self, forCellWithReuseIdentifier: LargePosterCollectionViewCell.identifier)
         collectionView.register(PosterCollectionViewCell.self, forCellWithReuseIdentifier: PosterCollectionViewCell.identifier)
         collectionView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: LiveCollectionViewCell.identifier)
@@ -31,79 +30,26 @@ final class MainView: BaseView {
         return collectionView
     }()
     
-    private lazy var tabBarView = TabBarView(categoryTitleList: categoryTitleList)
     
-    let gradientView: UIView = {
-        let view = UIView()
-        view.setGradient(color1: .tvingGray2, color2: .clear)
-        return view
-    }()
-    
-    let gradientImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = Images.gradientImage
-        
-        return imageView
-    }()
-    
-    lazy var tvingLogoButton: UIButton = {
-        let button = UIButton()
-        button.setImage(Images.whiteLogoImage, for: .normal)
-        return button
-    }()
-    
-    lazy var circleProfileButton: UIButton = {
-        let button = UIButton()
-        button.setImage(Images.circleProfileImage, for: .normal)
-        return button
-    }()
-    
-    
-    lazy var posterImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = Images.poster1Image
-        imageView.bringSubviewToFront(gradientImageView)
-        return imageView
-    }()
     
     
     
     func setViewHierarchy() {
-        self.addSubviews(mainCollectionView,gradientImageView,tvingLogoButton, circleProfileButton, tabBarView)
+        self.addSubviews(mainCollectionView)
     }
     
     func setConstraints() {
-        
-        tabBarView.snp.makeConstraints{
-            $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(tvingLogoButton.snp.bottom).offset(5)
-            $0.height.equalTo(45)
-        }
         
         mainCollectionView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
         
         
-        gradientImageView.snp.makeConstraints{
-            $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(200)
-        }
         
-        tvingLogoButton.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(58)
-            $0.leading.equalToSuperview().offset(11)
-        }
-        
-        circleProfileButton.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(55)
-            $0.trailing.equalToSuperview().inset(11)
-        }
     }
     
     func createMainLayout() -> NSCollectionLayoutSection {
-        // 각 item의 사이즈 설정 ( width: 98, height: 146 )
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(375), heightDimension: .absolute(498))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(self.bounds.width), heightDimension: .absolute(498))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
         // group설정
@@ -111,19 +57,18 @@ final class MainView: BaseView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         // section 설정
         let section = NSCollectionLayoutSection(group: group)
-
         //스크롤 설정
-        section.orthogonalScrollingBehavior = .continuous
-
+        section.orthogonalScrollingBehavior = .paging
+        
         return section
     }
     
     
     func createPosterLayout() -> NSCollectionLayoutSection {
         // 각 item의 사이즈 설정 ( width: 98, height: 146 )
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(98.0), heightDimension: .absolute(146.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(102.0), heightDimension: .absolute(146.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
         
         // group설정
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200.0))
@@ -135,7 +80,7 @@ final class MainView: BaseView {
         section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)]
         //스크롤 설정
         section.orthogonalScrollingBehavior = .continuous
-
+        
         return section
     }
     
@@ -146,18 +91,18 @@ final class MainView: BaseView {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(160.0))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 3)
-
+        
         let section = NSCollectionLayoutSection(group: group)
-
+        
         section.orthogonalScrollingBehavior = .continuous
         
         section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)]
-
+        
         return section
     }
     func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout {[weak self] sectionNumber, env -> NSCollectionLayoutSection? in
-
+            
             switch sectionNumber {
             case 0:
                 return self?.createMainLayout()
@@ -180,10 +125,10 @@ extension MainView: UICollectionViewDataSource {
         if section == 0 {
             return largePosterDummyData.count
         } else if section == 2{
-           return contentDummyData.count
+            return contentDummyData.count
         } else {
             return posterDummyData.count
-         }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -233,12 +178,21 @@ extension MainView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader, // 헤더일때
-                  let header = mainCollectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: HeaderView.identifier,
-                    for: indexPath
-                  ) as? HeaderView else {return UICollectionReusableView()}
-            return header
+              let header = mainCollectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: HeaderView.identifier,
+                for: indexPath
+              ) as? HeaderView else {return UICollectionReusableView()}
+        if indexPath.section == 2 {
+            header.configure(title: "인기 LIVE 채널")
+        }
+        else if indexPath.section == 3 {
+            header.configure(title: "마술보다 더 신비로운 영화(신비로운 영화사전님)")
+        }
+        else if indexPath.section == 4 {
+            header.configure(title: "1화 무료! 파라마운트+ 인기 시리즈")
+        }
+        return header
     }
     
 }

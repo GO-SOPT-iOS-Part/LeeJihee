@@ -13,13 +13,41 @@ protocol PagingDelegate: AnyObject {
 
 
 
-class TabBarView: UIView {
+
+class TopTabBar: UIView {
     
     var cellHeight: CGFloat { 44.0 }
+    var currentIndex: Int = 0
+    
     
     private var categoryTitleList: [String]
     
     weak var delegate: PagingDelegate?
+    
+    let gradientView: UIView = {
+        let view = UIView()
+        view.setGradient(color1: .black, color2: .clear)
+        return view
+    }()
+    
+    let gradientImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Images.gradientImage
+        
+        return imageView
+    }()
+    
+    lazy var tvingLogoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Images.whiteLogoImage, for: .normal)
+        return button
+    }()
+    
+    lazy var circleProfileButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Images.circleProfileImage, for: .normal)
+        return button
+    }()
     
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -48,6 +76,7 @@ class TabBarView: UIView {
         self.categoryTitleList = categoryTitleList
         super.init(frame: .zero)
         setupLayout()
+        gradientView.setGradient(color1: .black, color2: .clear)
         collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: []) // 처음에 첫 탭에 포커싱
     }
     
@@ -56,42 +85,64 @@ class TabBarView: UIView {
     }
     
     private func setupLayout() {
-        addSubview(collectionView)
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        self.addSubviews(gradientView,tvingLogoButton, circleProfileButton,collectionView)
+        
+        gradientView.snp.makeConstraints{
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(200)
         }
+        
+        tvingLogoButton.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(58)
+            $0.leading.equalToSuperview().offset(11)
+        }
+        
+        circleProfileButton.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(55)
+            $0.trailing.equalToSuperview().inset(11)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(tvingLogoButton.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(45)
+        }
+        
+        
     }
 }
 
-extension TabBarView: UICollectionViewDelegateFlowLayout {
+extension TopTabBar: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didTapPagingTabBarCell(scrollTo: indexPath)
+        
+        currentIndex = indexPath.item
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabCollectionViewCell.identifier, for: indexPath) as? TabCollectionViewCell else {
-                return .zero
-            }
-            cell.titleLabel.text = categoryTitleList[indexPath.row]
-            // ✅ sizeToFit() : 텍스트에 맞게 사이즈가 조절
-            cell.titleLabel.sizeToFit()
-
-            // ✅ cellWidth = 글자수에 맞는 UILabel 의 width + 20(여백)
-            let cellWidth = cell.titleLabel.frame.width + 20
-
-            return CGSize(width: cellWidth, height: 30)
+            return .zero
         }
+        cell.titleLabel.text = categoryTitleList[indexPath.row]
+        cell.titleLabel.sizeToFit()
+        let cellWidth = cell.titleLabel.frame.width + 20
+        return CGSize(width: cellWidth, height: 30)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+            let indexPath = IndexPath(row: Int(targetContentOffset.pointee.x / UIScreen.main.bounds.width), section: 0)
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        }
+    
 }
 
-extension TabBarView: UICollectionViewDataSource {
+extension TopTabBar: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryTitleList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabCollectionViewCell.identifier, for: indexPath) as? TabCollectionViewCell else { return UICollectionViewCell() }
-        
         cell.setupView(title: categoryTitleList[indexPath.row])
-
         return cell
     }
 }

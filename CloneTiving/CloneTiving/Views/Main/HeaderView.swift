@@ -48,4 +48,8 @@ final class HeaderView: UICollectionReusableView  {
         }
     }
     
+    func configure(title: String) {
+        titleLabel.text = title
+    }
+    
 }

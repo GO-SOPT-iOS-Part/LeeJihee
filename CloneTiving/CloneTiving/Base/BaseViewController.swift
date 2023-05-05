@@ -36,6 +36,7 @@ class BaseViewController: UIViewController {
         setStyle()
         setLayout()
         setDelegate()
+        addTarget()
     }
     
     // MARK: UI
@@ -50,4 +51,6 @@ class BaseViewController: UIViewController {
     func setLayout() {}
    
     func setDelegate() {}
+    
+    func addTarget() {}
 }

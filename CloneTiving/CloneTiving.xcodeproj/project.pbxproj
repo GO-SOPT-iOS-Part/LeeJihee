@@ -48,8 +48,14 @@
 		361FB16829FFAE5400F54E43 /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16729FFAE5400F54E43 /* SettingTableView.swift */; };
 		361FB16B29FFB13C00F54E43 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16A29FFB13C00F54E43 /* UILabel+.swift */; };
 		361FB16D29FFF53300F54E43 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361FB16C29FFF53300F54E43 /* UIImage+.swift */; };
-		3630BD7F2A03E23000310506 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD7E2A03E23000310506 /* TabBarView.swift */; };
+		3630BD7F2A03E23000310506 /* TopTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD7E2A03E23000310506 /* TopTabBar.swift */; };
 		3630BD812A03EAC700310506 /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD802A03EAC700310506 /* TabCollectionViewCell.swift */; };
+		3630BD832A04D24800310506 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD822A04D24800310506 /* LiveViewController.swift */; };
+		3630BD892A04D2AC00310506 /* TVProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD882A04D2AC00310506 /* TVProgramViewController.swift */; };
+		3630BD8B2A04D2B900310506 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD8A2A04D2B900310506 /* MovieViewController.swift */; };
+		3630BD8D2A04D2CE00310506 /* ParaMountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD8C2A04D2CE00310506 /* ParaMountViewController.swift */; };
+		3630BD8F2A04D2DA00310506 /* KidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD8E2A04D2DA00310506 /* KidsViewController.swift */; };
+		3630BD912A04D70400310506 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630BD902A04D70400310506 /* HomeViewController.swift */; };
 		3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */; };
 		3663C98A29EB470300E64A0A /* NickNameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98929EB470300E64A0A /* NickNameSettingView.swift */; };
 		3663C98C29EC561E00E64A0A /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98B29EC561E00E64A0A /* CGFloat+.swift */; };
@@ -98,8 +104,14 @@
 		361FB16729FFAE5400F54E43 /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		361FB16A29FFB13C00F54E43 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		361FB16C29FFF53300F54E43 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-		3630BD7E2A03E23000310506 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		3630BD7E2A03E23000310506 /* TopTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBar.swift; sourceTree = "<group>"; };
 		3630BD802A03EAC700310506 /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
+		3630BD822A04D24800310506 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		3630BD882A04D2AC00310506 /* TVProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVProgramViewController.swift; sourceTree = "<group>"; };
+		3630BD8A2A04D2B900310506 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		3630BD8C2A04D2CE00310506 /* ParaMountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParaMountViewController.swift; sourceTree = "<group>"; };
+		3630BD8E2A04D2DA00310506 /* KidsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsViewController.swift; sourceTree = "<group>"; };
+		3630BD902A04D70400310506 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		3663C98929EB470300E64A0A /* NickNameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameSettingView.swift; sourceTree = "<group>"; };
 		3663C98B29EC561E00E64A0A /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
@@ -150,7 +162,7 @@
 		360EA0AE2A016BCE0014D9F1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3630BD7E2A03E23000310506 /* TabBarView.swift */,
+				3630BD7E2A03E23000310506 /* TopTabBar.swift */,
 				3630BD802A03EAC700310506 /* TabCollectionViewCell.swift */,
 				360EA0AA2A00DF140014D9F1 /* MainView.swift */,
 				360EA0B12A016E610014D9F1 /* PosterCollectionViewCell.swift */,
@@ -164,11 +176,11 @@
 		360EA0B72A021C7F0014D9F1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3630BD872A04D27300310506 /* Record */,
+				3630BD862A04D26300310506 /* Search */,
+				3630BD852A04D25B00310506 /* Home */,
+				3630BD842A04D25000310506 /* Released */,
 				360EA0E42A02C4830014D9F1 /* MainTabBarController.swift */,
-				360EA0AC2A00DF1F0014D9F1 /* MainViewController.swift */,
-				360EA0E62A02C9AE0014D9F1 /* ReleasedViewController.swift */,
-				360EA0E82A02C9BC0014D9F1 /* SearchViewController.swift */,
-				360EA0EA2A02C9DD0014D9F1 /* RecordViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -276,6 +288,44 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		3630BD842A04D25000310506 /* Released */ = {
+			isa = PBXGroup;
+			children = (
+				360EA0E62A02C9AE0014D9F1 /* ReleasedViewController.swift */,
+			);
+			path = Released;
+			sourceTree = "<group>";
+		};
+		3630BD852A04D25B00310506 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				360EA0AC2A00DF1F0014D9F1 /* MainViewController.swift */,
+				3630BD902A04D70400310506 /* HomeViewController.swift */,
+				3630BD822A04D24800310506 /* LiveViewController.swift */,
+				3630BD882A04D2AC00310506 /* TVProgramViewController.swift */,
+				3630BD8A2A04D2B900310506 /* MovieViewController.swift */,
+				3630BD8C2A04D2CE00310506 /* ParaMountViewController.swift */,
+				3630BD8E2A04D2DA00310506 /* KidsViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3630BD862A04D26300310506 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				360EA0E82A02C9BC0014D9F1 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3630BD872A04D27300310506 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				360EA0EA2A02C9DD0014D9F1 /* RecordViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -363,13 +413,14 @@
 				361FB16829FFAE5400F54E43 /* SettingTableView.swift in Sources */,
 				360EA0E92A02C9BC0014D9F1 /* SearchViewController.swift in Sources */,
 				360EA0ED2A0302CA0014D9F1 /* LargePosterCollectionViewCell.swift in Sources */,
-				3630BD7F2A03E23000310506 /* TabBarView.swift in Sources */,
+				3630BD7F2A03E23000310506 /* TopTabBar.swift in Sources */,
 				360EA0E72A02C9AE0014D9F1 /* ReleasedViewController.swift in Sources */,
 				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
 				3663C98E29EC567000E64A0A /* Constant.swift in Sources */,
 				36110C5F29E49DAA000ED129 /* Images.swift in Sources */,
 				3630BD812A03EAC700310506 /* TabCollectionViewCell.swift in Sources */,
+				3630BD8B2A04D2B900310506 /* MovieViewController.swift in Sources */,
 				361FB16429FFADA600F54E43 /* BaseViewController.swift in Sources */,
 				361FB16229FFACDC00F54E43 /* SettingViewController.swift in Sources */,
 				3663C98C29EC561E00E64A0A /* CGFloat+.swift in Sources */,
@@ -382,6 +433,10 @@
 				36110C6129E4ADD6000ED129 /* LoginSucessViewController.swift in Sources */,
 				360EA0A12A0019950014D9F1 /* SettingTableViewCell.swift in Sources */,
 				36110C3529E46285000ED129 /* SceneDelegate.swift in Sources */,
+				3630BD8F2A04D2DA00310506 /* KidsViewController.swift in Sources */,
+				3630BD8D2A04D2CE00310506 /* ParaMountViewController.swift in Sources */,
+				3630BD832A04D24800310506 /* LiveViewController.swift in Sources */,
+				3630BD912A04D70400310506 /* HomeViewController.swift in Sources */,
 				360EA0E52A02C4830014D9F1 /* MainTabBarController.swift in Sources */,
 				3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */,
 				360EA0B22A016E610014D9F1 /* PosterCollectionViewCell.swift in Sources */,
@@ -395,6 +450,7 @@
 				360EA0AD2A00DF1F0014D9F1 /* MainViewController.swift in Sources */,
 				360EA0C32A0240C30014D9F1 /* TableViewItem.swift in Sources */,
 				360EA0EB2A02C9DD0014D9F1 /* RecordViewController.swift in Sources */,
+				3630BD892A04D2AC00310506 /* TVProgramViewController.swift in Sources */,
 				36110C5229E46619000ED129 /* UIColor+.swift in Sources */,
 				36110C5829E467C3000ED129 /* UITextField+.swift in Sources */,
 			);
