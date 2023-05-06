@@ -18,6 +18,12 @@
 		3622DB8B29F2537E00452C33 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622DB8A29F2537E00452C33 /* TestViewController.swift */; };
 		3637A48729D806BC00289A15 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637A48629D806BC00289A15 /* FirstViewController.swift */; };
 		3637A48929D80F6000289A15 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3637A48829D80F6000289A15 /* SecondViewController.swift */; };
+		36513C3B2A06222A00A439CF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 36513C3A2A06222A00A439CF /* Alamofire */; };
+		36513C3D2A0623BD00A439CF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36513C3C2A0623BD00A439CF /* Config.swift */; };
+		36513C3F2A0623D400A439CF /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36513C3E2A0623D400A439CF /* NetworkResult.swift */; };
+		36513C412A06264B00A439CF /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36513C402A06264B00A439CF /* SignUpService.swift */; };
+		36513C432A06282300A439CF /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36513C422A06282300A439CF /* FourthViewController.swift */; };
+		36513C452A06289800A439CF /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36513C442A06289800A439CF /* SignUpResponse.swift */; };
 		3651571529F3AAFA00598391 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651571429F3AAFA00598391 /* CommonView.swift */; };
 		3651571829F3AB5E00598391 /* Week3Viewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651571729F3AB5E00598391 /* Week3Viewcontroller.swift */; };
 		3651571A29F3ABEE00598391 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3651571929F3ABEE00598391 /* BaseViewController.swift */; };
@@ -53,6 +59,11 @@
 		3622DB8A29F2537E00452C33 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		3637A48629D806BC00289A15 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		3637A48829D80F6000289A15 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		36513C3C2A0623BD00A439CF /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		36513C3E2A0623D400A439CF /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		36513C402A06264B00A439CF /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		36513C422A06282300A439CF /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		36513C442A06289800A439CF /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		3651571429F3AAFA00598391 /* CommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
 		3651571729F3AB5E00598391 /* Week3Viewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week3Viewcontroller.swift; sourceTree = "<group>"; };
 		3651571929F3ABEE00598391 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36513C3B2A06222A00A439CF /* Alamofire in Frameworks */,
 				369B6E4B29E1410800391F13 /* SnapKit in Frameworks */,
 				369B6E4E29E143EB00391F13 /* Then in Frameworks */,
 			);
@@ -118,6 +130,18 @@
 				36110C1D29E29BA5000ED129 /* CustomButton.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		3630BD942A06187C00310506 /* 4th Seminar */ = {
+			isa = PBXGroup;
+			children = (
+				36513C422A06282300A439CF /* FourthViewController.swift */,
+				36513C3C2A0623BD00A439CF /* Config.swift */,
+				36513C3E2A0623D400A439CF /* NetworkResult.swift */,
+				36513C402A06264B00A439CF /* SignUpService.swift */,
+				36513C442A06289800A439CF /* SignUpResponse.swift */,
+			);
+			path = "4th Seminar";
 			sourceTree = "<group>";
 		};
 		3651571229F3AA8F00598391 /* 3rd_Seminar */ = {
@@ -204,10 +228,11 @@
 				367315EF29D7D79600531D41 /* Assets.xcassets */,
 				367315F129D7D79600531D41 /* LaunchScreen.storyboard */,
 				367315F429D7D79600531D41 /* Info.plist */,
-				3651571229F3AA8F00598391 /* 3rd_Seminar */,
+				3630BD942A06187C00310506 /* 4th Seminar */,
 				36110C1C29E29B7F000ED129 /* CustomView */,
 				369B6E4329E132C400391F13 /* 1st_Seminar */,
 				36110C0B29E14816000ED129 /* 2nd_Seminar */,
+				3651571229F3AA8F00598391 /* 3rd_Seminar */,
 			);
 			path = SOPT_iOS;
 			sourceTree = "<group>";
@@ -258,6 +283,7 @@
 			packageProductDependencies = (
 				369B6E4A29E1410800391F13 /* SnapKit */,
 				369B6E4D29E143EB00391F13 /* Then */,
+				36513C3A2A06222A00A439CF /* Alamofire */,
 			);
 			productName = SOPT_iOS;
 			productReference = 367315E329D7D79400531D41 /* SOPT_iOS.app */;
@@ -290,6 +316,7 @@
 			packageReferences = (
 				369B6E4929E1410700391F13 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				369B6E4C29E143EB00391F13 /* XCRemoteSwiftPackageReference "Then" */,
+				36513C392A06222A00A439CF /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 367315E429D7D79400531D41 /* Products */;
 			projectDirPath = "";
@@ -318,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3651573329F3C0C800598391 /* PhotoCell.swift in Sources */,
+				36513C432A06282300A439CF /* FourthViewController.swift in Sources */,
 				3651572F29F3BFCC00598391 /* Photos.swift in Sources */,
 				36110C1129E149B7000ED129 /* Test1ViewController.swift in Sources */,
 				3651572029F3B10600598391 /* CarrotViewController.swift in Sources */,
@@ -338,7 +366,11 @@
 				3651571829F3AB5E00598391 /* Week3Viewcontroller.swift in Sources */,
 				367315E729D7D79400531D41 /* AppDelegate.swift in Sources */,
 				36110C1329E154B5000ED129 /* Test2_FirstViewController.swift in Sources */,
+				36513C412A06264B00A439CF /* SignUpService.swift in Sources */,
+				36513C3F2A0623D400A439CF /* NetworkResult.swift in Sources */,
 				367315E929D7D79400531D41 /* SceneDelegate.swift in Sources */,
+				36513C452A06289800A439CF /* SignUpResponse.swift in Sources */,
+				36513C3D2A0623BD00A439CF /* Config.swift in Sources */,
 				3637A48929D80F6000289A15 /* SecondViewController.swift in Sources */,
 				3637A48729D806BC00289A15 /* FirstViewController.swift in Sources */,
 				3651572829F3B75A00598391 /* UIImage+.swift in Sources */,
@@ -366,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BASE_URL = "http://54.180.123.11";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -415,6 +448,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				NEW_SETTING1 = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -426,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BASE_URL = "http://54.180.123.11";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -469,6 +504,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				NEW_SETTING1 = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -556,6 +592,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		36513C392A06222A00A439CF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		369B6E4929E1410700391F13 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -575,6 +619,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		36513C3A2A06222A00A439CF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36513C392A06222A00A439CF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		369B6E4A29E1410800391F13 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 369B6E4929E1410700391F13 /* XCRemoteSwiftPackageReference "SnapKit" */;
