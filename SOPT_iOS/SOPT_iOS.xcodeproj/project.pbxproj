@@ -120,6 +120,7 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+
 		3651571229F3AA8F00598391 /* 3rd_Seminar */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,13 +171,16 @@
 		3651572B29F3BF0F00598391 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				3651572E29F3BFCC00598391 /* Photos.swift */,
+				3651572C29F3BF1E00598391 /* PhotoViewController.swift */,
+
 				3651572C29F3BF1E00598391 /* PhotoViewController.swift */,
 				3651572E29F3BFCC00598391 /* Photos.swift */,
-				3651573229F3C0C800598391 /* PhotoCell.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
 		};
+    
 		367315DA29D7D79400531D41 = {
 			isa = PBXGroup;
 			children = (
