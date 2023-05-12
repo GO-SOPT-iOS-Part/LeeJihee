@@ -10,11 +10,7 @@ import SnapKit
 
 final class MainView: BaseView {
     
-    let posterDummyData = Poster.dummy()
-    let contentDummyData = Contents.dummy()
-    let largePosterDummyData = LargePoster.dummy()
-    
-    private lazy var mainCollectionView : UICollectionView = {
+    lazy var mainCollectionView : UICollectionView = {
         let flowLayout =  createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
@@ -27,12 +23,8 @@ final class MainView: BaseView {
         LiveCollectionViewCell.register(collectionView: collectionView)
     
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.identifier)
-        collectionView.dataSource = self
         return collectionView
     }()
-    
-    
-    
     
     
      func setViewHierarchy() {
@@ -44,9 +36,6 @@ final class MainView: BaseView {
         mainCollectionView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
-        
-        
-        
     }
     
     private func createMainLayout() -> NSCollectionLayoutSection {
@@ -117,72 +106,5 @@ final class MainView: BaseView {
     
 }
 
-extension MainView: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return largePosterDummyData.count
-        } else if section == 2{
-            return contentDummyData.count
-        } else {
-            return posterDummyData.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            let cell = LargePosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(largePosterDummyData[indexPath.row])
-            return cell
-            
-        } else if indexPath.section == 1 {
-            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(posterDummyData[indexPath.row])
-            return cell
-        } else if indexPath.section == 2 {
-            let cell = LiveCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(contentDummyData[indexPath.row])
-            cell.rankingLabel.text = String(indexPath.row + 1)
-            return cell
-        } else if indexPath.section == 3 {
-            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(posterDummyData[indexPath.row])
-            return cell
-        } else if indexPath.section == 4 {
-            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(posterDummyData[indexPath.row])
-            return cell
-        } else if indexPath.section == 5 {
-            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(posterDummyData[indexPath.row])
-            return cell
-        }
-        
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader, // 헤더일때
-              let header = mainCollectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: HeaderView.identifier,
-                for: indexPath
-              ) as? HeaderView else {return UICollectionReusableView()}
-        if indexPath.section == 2 {
-            header.configure(title: "인기 LIVE 채널")
-        }
-        else if indexPath.section == 3 {
-            header.configure(title: "마술보다 더 신비로운 영화(신비로운 영화사전님)")
-        }
-        else if indexPath.section == 4 {
-            header.configure(title: "1화 무료! 파라마운트+ 인기 시리즈")
-        }
-        return header
-    }
-    
-}
 
 

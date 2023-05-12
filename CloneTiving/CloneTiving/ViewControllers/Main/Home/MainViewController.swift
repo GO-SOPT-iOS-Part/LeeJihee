@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainViewController: BaseViewController {
-
+    
     //MARK: Property
     
     private let categoryTitleList = [ "홈", "실시간", "TV프로그램", "영화", "파라마운트+", "키즈" ]
@@ -20,14 +20,15 @@ final class MainViewController: BaseViewController {
     private lazy var topNaviView = TopTabBar(categoryTitleList: categoryTitleList)
     
     private lazy var vc1: UIViewController = HomeViewController()
-
+    
     private lazy var dataViewControllers: [UIViewController] = {
         return [vc1,LiveViewController(), TVProgramViewController(), MovieViewController(),ParaMountViewController(),KidsViewController()]
     }()
-     
+    
     //MARK: Life Cycles
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
+        
     }
     
     
@@ -68,6 +69,8 @@ final class MainViewController: BaseViewController {
     override func addTarget() {
         topNaviView.circleProfileButton.addTarget(self, action: #selector(profileButtonDidTap), for: .touchUpInside)
     }
+    
+   
     
     
     //MARK: Action

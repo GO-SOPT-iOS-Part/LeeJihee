@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class LargePosterCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
@@ -41,6 +42,12 @@ final class LargePosterCollectionViewCell: UICollectionViewCell, CollectionViewC
     
     func configureCell(_ largePoster: LargePoster){
         largePosterImageView.image = largePoster.image
+    }
+    
+    func configureCellApi(posterPath: String) {
+        let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+        
+        largePosterImageView.kf.setImage(with: posterURL)
     }
     
 }
