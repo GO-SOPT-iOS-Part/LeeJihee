@@ -17,7 +17,7 @@ final class LiveCollectionViewCell: UICollectionViewCell, CollectionViewCellReus
         return imageView
     }()
     
-    private lazy var rankingLabel : UILabel = {
+    lazy var rankingLabel : UILabel = {
         let label = UILabel()
         label.font = .tvingBold(ofSize: 19)
         label.textColor = .white

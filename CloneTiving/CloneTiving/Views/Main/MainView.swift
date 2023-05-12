@@ -35,11 +35,11 @@ final class MainView: BaseView {
     
     
     
-    private func setViewHierarchy() {
+     func setViewHierarchy() {
         self.addSubviews(mainCollectionView)
     }
     
-    private func setConstraints() {
+     func setConstraints() {
         
         mainCollectionView.snp.makeConstraints{
             $0.edges.equalToSuperview()
