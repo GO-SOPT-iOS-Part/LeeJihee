@@ -8,25 +8,23 @@
 import UIKit
 import SnapKit
 
-final class LiveCollectionViewCell: UICollectionViewCell {
+final class LiveCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
-    static let identifier = "liveCollectionViewCell"
-    
-    let thumbnailImageView: UIImageView = {
-       let imageView = UIImageView()
+    private let thumbnailImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.backgroundColor = .orange
         imageView.makeCornerRound(radius: 3)
         return imageView
     }()
     
-    lazy var rankingLabel : UILabel = {
+    private lazy var rankingLabel : UILabel = {
         let label = UILabel()
         label.font = .tvingBold(ofSize: 19)
         label.textColor = .white
         return label
     }()
-
-    lazy var chanelLabel: UILabel = {
+    
+    private lazy var chanelLabel: UILabel = {
         let label = UILabel()
         label.text = "Mnet"
         label.font = .tvingRegular(ofSize: 10)
@@ -34,7 +32,7 @@ final class LiveCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var contentTitleLabel: UILabel = {
+    private lazy var contentTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .tvingRegular(ofSize: 10)
         label.text = "Mnet"
@@ -42,7 +40,7 @@ final class LiveCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var rateLabel: UILabel = {
+    private lazy var rateLabel: UILabel = {
         let label = UILabel()
         label.text = "Mnet"
         label.font = .tvingRegular(ofSize: 10)

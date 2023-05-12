@@ -8,19 +8,19 @@
 import UIKit
 
 class BaseScrollView: UIScrollView {
-
-
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayouts()
         configure()
     }
-
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func configure() {}
     private func setLayouts() {
         setViewHierarchy()

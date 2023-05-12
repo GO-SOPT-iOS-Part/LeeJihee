@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TVProgramViewController: UIViewController {
+final class TVProgramViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

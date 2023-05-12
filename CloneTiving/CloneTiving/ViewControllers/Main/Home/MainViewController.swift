@@ -7,23 +7,21 @@
 
 import UIKit
 
-class MainViewController: BaseViewController {
-    
-    //MARK: UI
-    
+final class MainViewController: BaseViewController {
+
+    //MARK: Property
     
     private let categoryTitleList = [ "홈", "실시간", "TV프로그램", "영화", "파라마운트+", "키즈" ]
     
-    lazy var pageViewController : UIPageViewController = {
-        let pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        return pageVC
-    }()
+    //MARK: UI
     
-    lazy var topNaviView = TopTabBar(categoryTitleList: categoryTitleList)
+    private lazy var pageViewController  = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
-    lazy var vc1: UIViewController = HomeViewController()
+    private lazy var topNaviView = TopTabBar(categoryTitleList: categoryTitleList)
+    
+    private lazy var vc1: UIViewController = HomeViewController()
 
-    lazy var dataViewControllers: [UIViewController] = {
+    private lazy var dataViewControllers: [UIViewController] = {
         return [vc1,LiveViewController(), TVProgramViewController(), MovieViewController(),ParaMountViewController(),KidsViewController()]
     }()
      
@@ -62,7 +60,6 @@ class MainViewController: BaseViewController {
         
     }
     
-    
     override func setDelegate() {
         pageViewController.dataSource = self
         topNaviView.delegate = self
@@ -71,6 +68,9 @@ class MainViewController: BaseViewController {
     override func addTarget() {
         topNaviView.circleProfileButton.addTarget(self, action: #selector(profileButtonDidTap), for: .touchUpInside)
     }
+    
+    
+    //MARK: Action
     
     @objc func profileButtonDidTap() {
         let nextVC = SettingViewController()

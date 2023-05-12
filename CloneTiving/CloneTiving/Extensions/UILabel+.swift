@@ -8,11 +8,9 @@
 import UIKit
 
 extension UILabel {
-        func labelWithImg(composition: NSAttributedString...) {
-            let attributedString = NSMutableAttributedString()
-            for i in composition {
-            attributedString.append(i)
-            }
+    func labelWithImg(composition: NSAttributedString...) {
+        let attributedString = NSMutableAttributedString()
+        composition.forEach { attributedString.append($0) }
         self.attributedText = attributedString
     }
 }

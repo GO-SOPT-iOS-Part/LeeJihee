@@ -14,7 +14,7 @@ final class MainView: BaseView {
     let contentDummyData = Contents.dummy()
     let largePosterDummyData = LargePoster.dummy()
     
-    lazy var mainCollectionView : UICollectionView = {
+    private lazy var mainCollectionView : UICollectionView = {
         let flowLayout =  createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
@@ -22,9 +22,10 @@ final class MainView: BaseView {
         collectionView.backgroundColor = .black
         collectionView.contentInsetAdjustmentBehavior = .never
         
-        collectionView.register(LargePosterCollectionViewCell.self, forCellWithReuseIdentifier: LargePosterCollectionViewCell.identifier)
-        collectionView.register(PosterCollectionViewCell.self, forCellWithReuseIdentifier: PosterCollectionViewCell.identifier)
-        collectionView.register(LiveCollectionViewCell.self, forCellWithReuseIdentifier: LiveCollectionViewCell.identifier)
+        LargePosterCollectionViewCell.register(collectionView: collectionView)
+        PosterCollectionViewCell.register(collectionView: collectionView)
+        LiveCollectionViewCell.register(collectionView: collectionView)
+    
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.identifier)
         collectionView.dataSource = self
         return collectionView
@@ -34,11 +35,11 @@ final class MainView: BaseView {
     
     
     
-    func setViewHierarchy() {
+    private func setViewHierarchy() {
         self.addSubviews(mainCollectionView)
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         
         mainCollectionView.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -48,7 +49,7 @@ final class MainView: BaseView {
         
     }
     
-    func createMainLayout() -> NSCollectionLayoutSection {
+    private func createMainLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(self.bounds.width), heightDimension: .absolute(498))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
@@ -64,7 +65,7 @@ final class MainView: BaseView {
     }
     
     
-    func createPosterLayout() -> NSCollectionLayoutSection {
+    private func createPosterLayout() -> NSCollectionLayoutSection {
         // 각 item의 사이즈 설정 ( width: 98, height: 146 )
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(102.0), heightDimension: .absolute(146.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -84,7 +85,7 @@ final class MainView: BaseView {
         return section
     }
     
-    func createBasicLayout() -> NSCollectionLayoutSection {
+    private func createBasicLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(160), heightDimension: .absolute(80))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
@@ -100,7 +101,7 @@ final class MainView: BaseView {
         
         return section
     }
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout {[weak self] sectionNumber, env -> NSCollectionLayoutSection? in
             
             switch sectionNumber {
@@ -133,42 +134,29 @@ extension MainView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: LargePosterCollectionViewCell.identifier, for: indexPath) as? LargePosterCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            let cell = LargePosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(largePosterDummyData[indexPath.row])
             return cell
             
         } else if indexPath.section == 1 {
-            guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(posterDummyData[indexPath.row])
             return cell
         } else if indexPath.section == 2 {
-            
-            guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: LiveCollectionViewCell.identifier, for: indexPath) as? LiveCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            let cell = LiveCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(contentDummyData[indexPath.row])
             cell.rankingLabel.text = String(indexPath.row + 1)
             return cell
         } else if indexPath.section == 3 {
-            guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(posterDummyData[indexPath.row])
             return cell
         } else if indexPath.section == 4 {
-            guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(posterDummyData[indexPath.row])
             return cell
         } else if indexPath.section == 5 {
-            guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.configureCell(posterDummyData[indexPath.row])
             return cell
         }

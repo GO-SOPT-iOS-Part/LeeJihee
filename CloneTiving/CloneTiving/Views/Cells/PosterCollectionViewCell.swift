@@ -7,15 +7,14 @@
 
 import UIKit
 
-final class PosterCollectionViewCell: UICollectionViewCell {
+final class PosterCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
-    static let identifier = "posterCollectionViewCell"
     
-    let posterImageView: UIImageView = {
+    private let posterImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
-    let titleLabel: UILabel =  {
+    private let titleLabel: UILabel =  {
         let label = UILabel()
         label.font = .tvingRegular(ofSize: 10)
         label.textColor = .tvingGray2

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController {
     
     private let settingView = SettingTableView()
     private let settingHeaderView = SettingHeaderView()
@@ -24,8 +24,7 @@ class SettingViewController: BaseViewController {
     
     
     let cellIdentifier = "settingCell"
-    let settingTexts: [String] = ["이용권", "1:1 문의내역", "예약알림", "회원정보 수정", "프로모션 정보 수신 동의"]
-    let settingTexts2: [String] = ["공지사항", "이벤트", "고객센터", "티빙 알아보기"]
+    let settingTexts = [["이용권", "1:1 문의내역", "예약알림", "회원정보 수정", "프로모션 정보 수신 동의"],["공지사항", "이벤트", "고객센터", "티빙 알아보기"]]
     
     override func loadView() {
         navigationController?.navigationBar.isHidden = false
@@ -54,12 +53,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? settingTexts.count : settingTexts2.count
+        return settingTexts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SettingTableViewCell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
-        cell.settingLabel.text = indexPath.section == 0 ? settingTexts[indexPath.row] : settingTexts2[indexPath.row]
+        cell.settingLabel.text = settingTexts[indexPath.section][indexPath.row]
         
         return cell
     }

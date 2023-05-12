@@ -18,7 +18,7 @@ final class HeaderView: UICollectionReusableView  {
         return label
     }()
     
-    lazy var moreButton: UIButton = {
+    private lazy var moreButton: UIButton = {
         let button = UIButton()
         button.setTitle("전체보기 >", for: .normal)
         button.titleLabel?.font = .tvingRegular(ofSize: 13)
@@ -32,11 +32,11 @@ final class HeaderView: UICollectionReusableView  {
         setConstraints()
     }
     
-    func setViewHierarchy() {
+    private func setViewHierarchy() {
         self.addSubviews(titleLabel,moreButton)
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         titleLabel.snp.makeConstraints{
             $0.top.equalToSuperview().offset(5)
             $0.leading.equalToSuperview().offset(5)
@@ -48,7 +48,7 @@ final class HeaderView: UICollectionReusableView  {
         }
     }
     
-    func configure(title: String) {
+    private func configure(title: String) {
         titleLabel.text = title
     }
     

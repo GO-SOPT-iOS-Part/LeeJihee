@@ -19,14 +19,14 @@ open class BaseViewClass: UIView {
         super.init(frame: frame)
         setLayouts()
     }
-
+    
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
     private func setLayouts() {
         guard let baseView = self as? BaseView else { return }
-
+        
         baseView.setViewHierarchy()
         baseView.setConstraints()
     }

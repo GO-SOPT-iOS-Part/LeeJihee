@@ -26,16 +26,3 @@ extension Poster {
     }
 }
 
-struct LargePoster {
-    let image: UIImage
-}
-
-extension LargePoster {
-    static func dummy() -> [LargePoster]{
-        var largePosters: [LargePoster] = []
-        for number in 1...4 {
-            largePosters.append(LargePoster(image: UIImage(named: "LargePoster\(number)")!))
-        }
-        return largePosters
-    }
-}

@@ -7,9 +7,7 @@
 
 import UIKit
 
-class LargePosterCollectionViewCell: UICollectionViewCell {
-    
-    static let identifier = "largePosterCell"
+final class LargePosterCollectionViewCell: UICollectionViewCell, CollectionViewCellReuseProtocol {
     
     let largePosterImageView: UIImageView = {
         let imageView = UIImageView()

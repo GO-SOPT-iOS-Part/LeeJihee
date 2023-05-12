@@ -10,7 +10,3 @@ enum TableViewItem: Equatable {
   case poster(UIImage?, String) // thumbnailImage, name
   case collection(String, [CollectionViewItem]) // name, collection
 }
-
-enum CollectionViewItem: Equatable {
-  case color(UIColor)
-}

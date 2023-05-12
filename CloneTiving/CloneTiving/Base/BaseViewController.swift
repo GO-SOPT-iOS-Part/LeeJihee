@@ -11,7 +11,7 @@ class BaseViewController: UIViewController {
     // MARK: Properties
     
     lazy private(set) var className: String = {
-      return type(of: self).description().components(separatedBy: ".").last ?? ""
+        return type(of: self).description().components(separatedBy: ".").last ?? ""
     }()
     
     // MARK: Initializing
@@ -28,11 +28,11 @@ class BaseViewController: UIViewController {
     deinit {
         print("DEINIT: \(className)")
     }
-
+    
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setStyle()
         setLayout()
         setDelegate()
@@ -49,7 +49,7 @@ class BaseViewController: UIViewController {
     
     /// Hierarchy, Constraints (계층 및 제약조건) 설정 메서드
     func setLayout() {}
-   
+    
     func setDelegate() {}
     
     func addTarget() {}

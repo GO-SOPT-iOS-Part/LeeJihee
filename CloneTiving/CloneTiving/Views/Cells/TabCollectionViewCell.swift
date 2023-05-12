@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TabCollectionViewCell: UICollectionViewCell {
+final class TabCollectionViewCell: UICollectionViewCell {
     static let identifier = "TabBarCell"
     
      lazy var titleLabel: UILabel = {
