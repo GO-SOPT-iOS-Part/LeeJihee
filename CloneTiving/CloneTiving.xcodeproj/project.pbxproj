@@ -71,6 +71,8 @@
 		364837082A0E02A900B19161 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364837072A0E02A900B19161 /* UICollectionView+.swift */; };
 		3648370C2A0E16F000B19161 /* SectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3648370B2A0E16F000B19161 /* SectionLayout.swift */; };
 		3648370E2A0E1F7E00B19161 /* BannerAdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3648370D2A0E1F7E00B19161 /* BannerAdCollectionViewCell.swift */; };
+		364837102A0F311C00B19161 /* MovieInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3648370F2A0F311C00B19161 /* MovieInfo.plist */; };
+		364837122A0F315800B19161 /* CloneTving++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364837112A0F315800B19161 /* CloneTving++Bundle.swift */; };
 		3663C97C29E944AD00E64A0A /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */; };
 		3663C98A29EB470300E64A0A /* NickNameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98929EB470300E64A0A /* NickNameSettingView.swift */; };
 		3663C98C29EC561E00E64A0A /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C98B29EC561E00E64A0A /* CGFloat+.swift */; };
@@ -140,6 +142,8 @@
 		364837072A0E02A900B19161 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		3648370B2A0E16F000B19161 /* SectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLayout.swift; sourceTree = "<group>"; };
 		3648370D2A0E1F7E00B19161 /* BannerAdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdCollectionViewCell.swift; sourceTree = "<group>"; };
+		3648370F2A0F311C00B19161 /* MovieInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MovieInfo.plist; sourceTree = "<group>"; };
+		364837112A0F315800B19161 /* CloneTving++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CloneTving++Bundle.swift"; sourceTree = "<group>"; };
 		3663C97B29E944AD00E64A0A /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		3663C98929EB470300E64A0A /* NickNameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameSettingView.swift; sourceTree = "<group>"; };
 		3663C98B29EC561E00E64A0A /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 		36110C3129E46285000ED129 /* CloneTiving */ = {
 			isa = PBXGroup;
 			children = (
+				3648370F2A0F311C00B19161 /* MovieInfo.plist */,
 				362AC2F42A0DD49200262E23 /* Protocols */,
 				36110C6F29E80238000ED129 /* Font */,
 				36110C3B29E46287000ED129 /* Assets.xcassets */,
@@ -252,6 +257,7 @@
 		36110C4C29E46574000ED129 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				364837112A0F315800B19161 /* CloneTving++Bundle.swift */,
 				36110C4F29E4660E000ED129 /* UIView+.swift */,
 				36110C5929E46F8C000ED129 /* UIStackView+.swift */,
 				36110C5529E467AA000ED129 /* UIButton+.swift */,
@@ -480,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36110C3F29E46287000ED129 /* LaunchScreen.storyboard in Resources */,
+				364837102A0F311C00B19161 /* MovieInfo.plist in Resources */,
 				36110C7429E8026C000ED129 /* Pretendard-Bold.otf in Resources */,
 				36110C7529E8026C000ED129 /* Pretendard-SemiBold.otf in Resources */,
 				36110C7329E8026C000ED129 /* Pretendard-Regular.otf in Resources */,
@@ -506,6 +513,7 @@
 				360EA0E72A02C9AE0014D9F1 /* ReleasedViewController.swift in Sources */,
 				362AC2F32A0DD44200262E23 /* CollectionViewCell.swift in Sources */,
 				36110C5A29E46F8C000ED129 /* UIStackView+.swift in Sources */,
+				364837122A0F315800B19161 /* CloneTving++Bundle.swift in Sources */,
 				36110C5629E467AA000ED129 /* UIButton+.swift in Sources */,
 				3663C98E29EC567000E64A0A /* Constant.swift in Sources */,
 				36110C5F29E49DAA000ED129 /* Images.swift in Sources */,
@@ -687,7 +695,6 @@
 		36110C4429E46287000ED129 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_KEY = 0337c0dae0e664eb0e5794f9139c157c;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BASE_URL = "https://api.themoviedb.org";
@@ -717,7 +724,6 @@
 		36110C4529E46287000ED129 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_KEY = 0337c0dae0e664eb0e5794f9139c157c;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BASE_URL = "https://api.themoviedb.org";

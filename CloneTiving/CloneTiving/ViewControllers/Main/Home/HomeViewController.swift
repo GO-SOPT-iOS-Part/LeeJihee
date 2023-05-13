@@ -45,14 +45,14 @@ final class HomeViewController: BaseViewController {
     }
     
     func didUseGetMethod() {
-            GetService.shared.getService(from: "\(Config.baseURL)/3/movie/popular?api_key=\(Config.apiKey)&language=en-US&page=1",
+        GetService.shared.getService(from: "\(Config.baseURL)/3/movie/popular?api_key=\(Bundle.main.apiKey)&language=ko&page=1",
                                          isTokenUse: false) {
                 (data: Response?, error) in
                 guard let data = data else {
                     return
                 }
                 for i in 0..<data.results.count {
-                    self.resultArray.append(.init(posterPath: data.results[i].posterPath, title: data.results[i].title))
+                    self.resultArray.append(.init(posterPath: data.results[i].posterPath, title: data.results[i].title, overview: data.results[i].overview))
                 }
             }
         }
@@ -71,7 +71,7 @@ extension HomeViewController: UICollectionViewDataSource {
         } else if section == 2{
             return contentDummyData.count
         } else {
-            return posterDummyData.count
+            return resultArray.count
         }
     }
     
@@ -80,12 +80,13 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = LargePosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
            
           //  cell.configureCell(largePosterDummyData[indexPath.row])
-            cell.configureCellApi(posterPath: resultArray[indexPath.item].posterPath)
+            cell.configureCellApi(resultArray[indexPath.item])
             return cell
             
         } else if indexPath.section == 1 {
             let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.configureCell(posterDummyData[indexPath.row])
+           // cell.configureCell(posterDummyData[indexPath.row])
+            cell.configureCellApi(result: resultArray[indexPath.item])
             return cell
         } else if indexPath.section == 2 {
             let cell = LiveCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)

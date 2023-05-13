@@ -15,6 +15,20 @@ final class LargePosterCollectionViewCell: UICollectionViewCell, CollectionViewC
         return imageView
     }()
     
+    let bottomGradientView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .tvingRegular(ofSize: 12)
+        label.textColor = .white
+        label.numberOfLines = 8
+        label.textAlignment = .left
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,22 +45,33 @@ final class LargePosterCollectionViewCell: UICollectionViewCell, CollectionViewC
     }
     
     private func setViewHierarchy() {
-        self.addSubview(largePosterImageView)
+        self.addSubviews(largePosterImageView,bottomGradientView,descriptionLabel)
     }
     
     private func setConstraints() {
         largePosterImageView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
+        bottomGradientView.snp.makeConstraints{
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.height.equalTo(100)
+        }
+        descriptionLabel.snp.makeConstraints{
+            $0.bottom.leading.equalToSuperview()
+            $0.width.equalTo(200)
+        }
+        
+        bottomGradientView.layoutIfNeeded()
+        bottomGradientView.setGradient(color1: .clear, color2: .black)
+        
     }
     
     func configureCell(_ largePoster: LargePoster){
         largePosterImageView.image = largePoster.image
     }
     
-    func configureCellApi(posterPath: String) {
-        let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
-        
+    func configureCellApi(_ result: ResultArrayDataModel) {
+        let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(result.posterPath)")
         largePosterImageView.kf.setImage(with: posterURL)
     }
     

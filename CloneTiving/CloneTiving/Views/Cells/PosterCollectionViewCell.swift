@@ -14,10 +14,11 @@ final class PosterCollectionViewCell: UICollectionViewCell, CollectionViewCellRe
         let imageView = UIImageView()
         return imageView
     }()
-    private let titleLabel: UILabel =  {
+    private lazy var titleLabel: UILabel =  {
         let label = UILabel()
-        label.font = .tvingRegular(ofSize: 10)
+        label.font = .tvingRegular(ofSize: 12)
         label.textColor = .tvingGray2
+        label.numberOfLines = 3
         return label
     }()
     
@@ -41,9 +42,12 @@ final class PosterCollectionViewCell: UICollectionViewCell, CollectionViewCellRe
     func setLayout() {
         posterImageView.snp.makeConstraints{
             $0.leading.trailing.top.equalToSuperview().offset(5)
+            $0.width.equalTo(102)
+            $0.height.equalTo(146)
         }
         titleLabel.snp.makeConstraints{
             $0.top.equalTo(posterImageView.snp.bottom).offset(2)
+            $0.width.equalTo(90)
             $0.leading.equalTo(posterImageView.snp.leading)
         }
     }
@@ -51,5 +55,10 @@ final class PosterCollectionViewCell: UICollectionViewCell, CollectionViewCellRe
     func configureCell(_ content: Poster){
         posterImageView.image = content.image
         titleLabel.text = content.title
+    }
+    func configureCellApi(result: ResultArrayDataModel) {
+        let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(result.posterPath)")
+        posterImageView.kf.setImage(with: posterURL)
+        titleLabel.text = result.title
     }
 }

@@ -56,5 +56,5 @@ enum OriginalLanguage: String, Codable {
 }
 
 struct ResultArrayDataModel {
-    let posterPath, title: String
+    let posterPath, title, overview: String
 }
