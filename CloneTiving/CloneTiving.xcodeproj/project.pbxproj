@@ -235,7 +235,6 @@
 		36110C3129E46285000ED129 /* CloneTiving */ = {
 			isa = PBXGroup;
 			children = (
-				3648370F2A0F311C00B19161 /* MovieInfo.plist */,
 				362AC2F42A0DD49200262E23 /* Protocols */,
 				36110C6F29E80238000ED129 /* Font */,
 				36110C3B29E46287000ED129 /* Assets.xcassets */,
@@ -243,6 +242,7 @@
 				36110C4029E46287000ED129 /* Info.plist */,
 				36110C3229E46285000ED129 /* AppDelegate.swift */,
 				36110C3429E46285000ED129 /* SceneDelegate.swift */,
+				3648370F2A0F311C00B19161 /* MovieInfo.plist */,
 				362AC2E52A0D5BE900262E23 /* Models */,
 				362AC2D52A0D55AD00262E23 /* Service */,
 				361FB16929FFB10F00F54E43 /* Base */,

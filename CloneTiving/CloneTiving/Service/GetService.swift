@@ -11,7 +11,7 @@ class GetService {
                                      method: .get,
                                      encoding: JSONEncoding.default,
                                      headers: header).response { response in
-                                     //  dump(response)
+                                     dump(response)
 
             do {
                 guard let resData = response.data else {

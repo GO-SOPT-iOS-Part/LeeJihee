@@ -11,7 +11,12 @@ import UIKit
 final class HomeViewController: BaseViewController {
     
     //MARK: Property
-    var resultArray: [ResultArrayDataModel] = [] {
+    var popularResultArray: [ResultArrayDataModel] = [] {
+        didSet {
+            mainView.mainCollectionView.reloadData()
+        }
+    }
+    var nowResultArray: [ResultArrayDataModel] = [] {
         didSet {
             mainView.mainCollectionView.reloadData()
         }
@@ -29,14 +34,14 @@ final class HomeViewController: BaseViewController {
     
     //MARK: LifeCycles
     override func viewWillAppear(_ animated: Bool) {
-        didUseGetMethod()
+        getPopularMovies()
+        getNowPlayingMovies()
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
     
     override func loadView() {
         self.view = mainView
-
     }
     
     
@@ -44,7 +49,7 @@ final class HomeViewController: BaseViewController {
         mainView.mainCollectionView.dataSource = self
     }
     
-    func didUseGetMethod() {
+    func getPopularMovies() {
         GetService.shared.getService(from: "\(Config.baseURL)/3/movie/popular?api_key=\(Bundle.main.apiKey)&language=ko&page=1",
                                          isTokenUse: false) {
                 (data: Response?, error) in
@@ -52,7 +57,21 @@ final class HomeViewController: BaseViewController {
                     return
                 }
                 for i in 0..<data.results.count {
-                    self.resultArray.append(.init(posterPath: data.results[i].posterPath, title: data.results[i].title, overview: data.results[i].overview))
+                    self.popularResultArray.append(.init(posterPath: data.results[i].posterPath, title: data.results[i].title, overview: data.results[i].overview))
+                }
+            }
+        }
+    
+    func getNowPlayingMovies() {
+        GetService.shared.getService(from: "\(Config.baseURL)/3/movie/now_playing?api_key=\(Bundle.main.apiKey)&language=ko&page=1",
+                                         isTokenUse: false) {
+                (data: Welcome?, error) in
+                guard let data = data else {
+                    return
+                }
+            print("성공!✅✅✅✅✅✅✅")
+                for i in 0..<data.results.count {
+                    self.nowResultArray.append(.init(posterPath: data.results[i].posterPath, title: data.results[i].title, overview: data.results[i].overview))
                 }
             }
         }
@@ -67,11 +86,11 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return resultArray.count
+            return popularResultArray.count
         } else if section == 2{
             return contentDummyData.count
         } else {
-            return resultArray.count
+            return popularResultArray.count
         }
     }
     
@@ -80,13 +99,13 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = LargePosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
            
           //  cell.configureCell(largePosterDummyData[indexPath.row])
-            cell.configureCellApi(resultArray[indexPath.item])
+            cell.configureCellApi(popularResultArray[indexPath.item])
             return cell
             
         } else if indexPath.section == 1 {
             let cell = PosterCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
            // cell.configureCell(posterDummyData[indexPath.row])
-            cell.configureCellApi(result: resultArray[indexPath.item])
+            cell.configureCellApi(result: nowResultArray[indexPath.item])
             return cell
         } else if indexPath.section == 2 {
             let cell = LiveCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
