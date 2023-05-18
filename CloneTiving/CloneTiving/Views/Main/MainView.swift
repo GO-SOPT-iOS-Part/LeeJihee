@@ -16,7 +16,6 @@ final class MainView: BaseView {
         
         collectionView.isScrollEnabled = true
         collectionView.backgroundColor = .black
-        collectionView.contentInsetAdjustmentBehavior = .never
         
         LargePosterCollectionViewCell.register(collectionView: collectionView)
         PosterCollectionViewCell.register(collectionView: collectionView)

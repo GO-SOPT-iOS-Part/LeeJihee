@@ -69,7 +69,6 @@ final class HomeViewController: BaseViewController {
                 guard let data = data else {
                     return
                 }
-            print("성공!✅✅✅✅✅✅✅")
                 for i in 0..<data.results.count {
                     self.nowResultArray.append(.init(posterPath: data.results[i].posterPath, title: data.results[i].title, overview: data.results[i].overview))
                 }
